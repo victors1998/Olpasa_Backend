@@ -27,6 +27,5 @@ public class UnidadMedida {
 
     @Column(name = "codigo_sunat", length = 255)
     private String codigoSunat;
-    @Column(name = "codigo_sunat", length = 255)
-    private String codigoSuna;
+
 }

@@ -3,6 +3,7 @@ package com.olpasa.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
@@ -10,12 +11,14 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "clasificacion")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Clasificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_clas")
-    private Integer idClasificacion;
+    @EqualsAndHashCode.Include
+    private Integer idClas;
 
     @Column(name = "descripcion", length = 150)
     private String descripcion;

@@ -20,7 +20,7 @@ public class Banco {
     @Column(name = "id_banco")
     private int idBanco;
 
-    @Column(name = "nombre", length = 150, nullable = false)
+    @Column(name = "nombre", length = 150)
     private String nombre;
 
 }

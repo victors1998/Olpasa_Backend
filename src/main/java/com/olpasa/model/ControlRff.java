@@ -20,7 +20,21 @@ public class ControlRff {
     @Column(name = "id_control")
     private Integer idControl;
 
+    @ManyToOne
+    @JoinColumn(name = "id_pesaje", foreignKey = @ForeignKey(name = "id_pesaje_control"))
+    private Pesaje idPesaje;
 
+    @Column(name = "campaña")
+    private String campaña;
+
+    @Column(name = "tipo_racimo")
+    private String tipo_racimo;
+
+    @Column(name = "condicion")
+    private String condicion;
+
+    @Column(name = "usuario")
+    private String usuario;
 
 
 }

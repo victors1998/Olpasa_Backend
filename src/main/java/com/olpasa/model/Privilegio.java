@@ -10,22 +10,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "empresa_transporte")
+@Table(name = "privilegio")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class EmpresaTransporte {
+public class Privilegio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_et")
     @EqualsAndHashCode.Exclude
-    private Integer codigoEt;
+    @Column(name = "id_privilegio")
+    private Integer idPrivilegio;
 
-    @Column(name = "estado", length = 20)
-    private String estado;
+    @Column(name = "descripcion", length = 50)
+    private String descripcion;
 
-    @Column(name = "id_cuenta")
-    private Integer idCuenta;
+    @Column(name = "Observacion", length = 150)
+    private String observacion;
 
-    @Column(name = "usuario", length = 30)
-    private String usuario;
+    @Column(name = "Modulo", length = 150)
+    private String modulo;
 }

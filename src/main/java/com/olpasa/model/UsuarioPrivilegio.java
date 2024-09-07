@@ -10,12 +10,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+@IdClass(UsuarioPrivilegioPK.class)
+@Table(name = "usuario_privilegio")
 public class UsuarioPrivilegio {
 
 
     @Id
-    private Usuario nombreUsuario;
+    @Column(name = "nombre_cuenta")
+    private Usuario nombreCuenta;
 
     @Id
+    @Column(name = "id_privilegio")
     private Privilegio idPrivilegio;
+
+
 }

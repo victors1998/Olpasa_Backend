@@ -1,7 +1,10 @@
 package com.olpasa.model;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 
+@Embeddable
+@EqualsAndHashCode
 public class UsuarioPrivilegioPK {
 
     @Id
@@ -10,7 +13,7 @@ public class UsuarioPrivilegioPK {
     private Integer idUp;
 
     @ManyToOne
-    @JoinColumn(name = "nombre_usuario")
+    @JoinColumn(name = "nombre_cuenta")
     private Usuario usuario;
 
     @ManyToOne

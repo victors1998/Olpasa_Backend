@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "banco")
+@Table(name = "usuario")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Usuario {
 
     @Id
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "nombre_cuenta", length = 50)
     private String nombreCuenta;
 

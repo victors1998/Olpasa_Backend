@@ -16,7 +16,7 @@ public class Privilegio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "id_privilegio")
     private Integer idPrivilegio;
 

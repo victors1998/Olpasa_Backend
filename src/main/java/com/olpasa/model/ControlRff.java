@@ -16,7 +16,7 @@ public class ControlRff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "id_control")
     private Integer idControl;
 

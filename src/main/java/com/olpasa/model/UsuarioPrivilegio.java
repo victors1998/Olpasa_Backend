@@ -10,17 +10,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@IdClass(UsuarioPrivilegioPK.class)
 @Table(name = "usuario_privilegio")
 public class UsuarioPrivilegio {
 
-
     @Id
-    @Column(name = "nombre_cuenta")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_up")
+    private Integer idUp;
+
+    @ManyToOne
+    @JoinColumn(name = "nombre_cuenta", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_privilegio_usuario"))
     private Usuario nombreCuenta;
 
-    @Id
-    @Column(name = "id_privilegio")
+    @ManyToOne
+    @JoinColumn(name = "id_privilegio", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_privilegio_privilegio"))
     private Privilegio idPrivilegio;
 
 

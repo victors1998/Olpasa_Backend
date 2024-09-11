@@ -18,7 +18,7 @@ public class Sector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sector")
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     private Integer idSector;
 
     @Column(name = "nombre", length = 50, nullable = false)

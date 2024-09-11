@@ -20,7 +20,7 @@ public class Pesaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "id_pesaje")
     private Integer idPesaje;
 

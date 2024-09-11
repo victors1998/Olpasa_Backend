@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class UnidadMedida {
 
     @Id
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "codigo_um", length = 10)
     private String codigoUm;
 

@@ -16,7 +16,7 @@ public class CuentaBancaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "id_cuenta")
     private Integer idCuenta;
 

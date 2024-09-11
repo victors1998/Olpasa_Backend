@@ -17,7 +17,7 @@ public class EvaluacionCalidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "id_evaluacion")
     private Integer idEvaluacion;
 

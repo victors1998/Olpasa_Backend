@@ -16,7 +16,7 @@ public class Conductor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     @Column(name = "codigo")
     private Integer codigo;
 

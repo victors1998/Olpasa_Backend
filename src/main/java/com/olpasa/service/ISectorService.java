@@ -4,15 +4,7 @@ import com.olpasa.model.Sector;
 
 import java.util.List;
 
-public interface ISectorService {
+public interface ISectorService extends ICRUD<Sector, Integer>{
 
-    Sector save(Sector sector);
 
-    Sector update(Integer id, Sector sector);
-
-    List<Sector> findAll();
-
-    Sector findById(Integer id);
-
-    void delete(Integer id);
 }

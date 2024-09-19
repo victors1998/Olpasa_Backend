@@ -18,7 +18,7 @@ public class Banco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_banco")
-    private int idBanco;
+    private Integer idBanco;
 
     @Column(name = "nombre", length = 150)
     private String nombre;

@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ClasificacionServiceImpl extends CRUDImpl<Clasificacion, Integer> implements IClasificacionService {
 
-    private final IClasificacionRepo clasificacionRepo;
+    private final IClasificacionRepo repo;
 
     @Override
     protected IGenericoRepo<Clasificacion, Integer> getRepo() {
-        return null;
+        return repo;
     }
 
 }

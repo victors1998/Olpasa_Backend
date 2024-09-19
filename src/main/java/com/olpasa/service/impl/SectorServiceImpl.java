@@ -14,10 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SectorServiceImpl extends CRUDImpl<Sector, Integer> implements ISectorService {
 
-    private final ISectorRepo repo;
+    private final ISectorRepo sectorRepo;
 
     @Override
     protected IGenericoRepo<Sector, Integer> getRepo() {
-        return repo;
+        return sectorRepo;
     }
 }

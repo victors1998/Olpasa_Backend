@@ -15,6 +15,6 @@ public class ConductorServiceImpl extends CRUDImpl<Conductor, Integer> implement
 
     @Override
     protected IGenericoRepo<Conductor, Integer> getRepo() {
-        return null;
+        return conductorRepo;
     }
 }

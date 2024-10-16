@@ -16,8 +16,8 @@ public class EmpresaTransporte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo_et")
     @EqualsAndHashCode.Include
+    @Column(name = "codigo_et")
     private Integer codigoEt;
 
     @Column(name = "estado", length = 20)

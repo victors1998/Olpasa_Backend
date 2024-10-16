@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class ConductorDto  {
 
     private Integer codigo;
-    private Integer codigoEt;
+    private Integer codigo_et;
     private String licencia;
     private String numeroDocumento;
     private String categoria;

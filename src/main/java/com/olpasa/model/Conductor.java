@@ -24,7 +24,7 @@ public class Conductor {
     @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "empresa_transporte_conductor_fk"))
     private EmpresaTransporte codigoEt;
 
-    @Column(name = "licencia", length = 20)
+    @Column(name = "licencia", length = 255)
     private String licencia;
 
     @Column(name = "numero_documento", length = 11)

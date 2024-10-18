@@ -23,8 +23,8 @@ public class MapperConfig {
         modelMapper.createTypeMap(ConductorDto.class, Conductor.class)
                 .addMapping(ConductorDto::getCodigo_et, (dest, v) -> dest.setCodigoEt((EmpresaTransporte) v));
 
-        modelMapper.createTypeMap(Conductor.class, ConductorDto.class)
-                .addMapping(Conductor::getCodigoEt, (dest, v) -> dest.setCodigo_et((Integer) v));
+        /*modelMapper.createTypeMap(Conductor.class, ConductorDto.class)
+                .addMapping(Conductor::getCodigoEt, (dest, v) -> dest.setCodigo_et((Integer) v));*/
 
         return modelMapper;
     }

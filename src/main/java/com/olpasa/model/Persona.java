@@ -26,7 +26,7 @@ public class Persona {
     @Column(name = "tipo_documento", length = 20)
     private String tipoDocumento;
 
-    @Column(name = "numero_documento", length = 15)
+    @Column(name = "numero_documento")
     private String numeroDocumento;
 
     @Column(name = "nombres", length = 150)

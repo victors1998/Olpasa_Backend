@@ -35,7 +35,7 @@ public class EmpresaTransporteController {
     public ResponseEntity<EmpresaTransporteDto> findById(@PathVariable("id") Integer id) {
         EmpresaTransporte obj = empresaTransporteService.findById(id);
         //return ResponseEntity.ok(convertToDto(obj));
-        return ResponseEntity.ok(mapperUtil.map(obj, EmpresaTransporteDto.class));
+        return ResponseEntity.ok(mapperUtil.map(obj, EmpresaTransporteDto.class, "empresaTransporteMapper"));
     }
 
     @PostMapping
@@ -48,7 +48,7 @@ public class EmpresaTransporteController {
 
     @PutMapping
     public ResponseEntity<EmpresaTransporteDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EmpresaTransporteDto dto) {
-        dto.setCodigo_et(id);
+        dto.setCodigoEt(id);
         //EmpresaTransporte obj = empresaTransporteService.update(id, convertToEntity(dto));
         EmpresaTransporte obj = empresaTransporteService.update(id, mapperUtil.map(dto, EmpresaTransporte.class));
         return ResponseEntity.ok(mapperUtil.map(obj, EmpresaTransporteDto.class));

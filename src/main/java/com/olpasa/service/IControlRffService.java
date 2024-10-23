@@ -4,7 +4,7 @@ import com.olpasa.model.ControlRff;
 import com.olpasa.model.Sector;
 
 
-public interface ISectorService extends ICRUD<Sector, Integer>{
+public interface IControlRffService extends ICRUD<ControlRff, Integer>{
 
 
 }

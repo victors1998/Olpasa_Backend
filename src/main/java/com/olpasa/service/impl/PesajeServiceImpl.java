@@ -7,6 +7,8 @@ import com.olpasa.service.IPesajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPesajeService {
@@ -16,5 +18,10 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     @Override
     protected IGenericoRepo<Pesaje, Integer> getRepo() {
         return pesajeRepo;
+    }
+
+    @Override
+    public List<Pesaje> listarPorEstado() {
+        return pesajeRepo.leerPorEstado();
     }
 }

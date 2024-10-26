@@ -14,7 +14,7 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class SectorDto {
 
-    private int idSector;
+    private Integer idSector;
 
     @NonNull
     //@NotEmpty

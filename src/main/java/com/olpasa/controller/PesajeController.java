@@ -49,13 +49,13 @@ public class PesajeController {
     public ResponseEntity<PesajeDto> save(@Valid @RequestBody PesajeDto dto) {
         //Pesaje obj = pesajeService.save(convertToEntity(dto));
         Pesaje obj = pesajeService.save(mapperUtil.map(dto, Pesaje.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdPesaje()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_pesaje()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<PesajeDto> update(@Valid @PathVariable("id") Integer id, @RequestBody PesajeDto dto) {
-        dto.setIdPesaje(id);
+        dto.setId_pesaje(id);
         //Pesaje obj = pesajeService.update(id, convertToEntity(dto));
         Pesaje obj = pesajeService.update(id, mapperUtil.map(dto, Pesaje.class));
         return ResponseEntity.ok(mapperUtil.map(obj, PesajeDto.class));

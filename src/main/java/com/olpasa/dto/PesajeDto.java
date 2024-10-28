@@ -18,73 +18,103 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PesajeDto {
 
-    private Integer idPesaje;
+    private Integer id_pesaje;
 
+    @Column(name = "num_ticket")
     private String num_ticket;
 
+    @Column(name = "tipo_operacion")
     private String tipo_operacion;
 
-    private TipoOperacion idTo;
+    private TipoOperacion id_to;
 
     private Persona codigo;
 
+    @Column(name = "fecha")
     private LocalDate fecha;
 
-    private Integer pesoIngreso;
+    @Column(name = "peso_ingreso")
+    private Integer peso_ingreso;
 
-    private Integer pesoSalida;
+    @Column(name = "peso_salida")
+    private Integer peso_salida;
 
-    private Integer pesoNeto;
+    @Column(name = "peso_neto")
+    private Integer peso_neto;
 
-    private BigDecimal castigoImporte;
+    @Column(columnDefinition = "DECIMAL(18,2)", name = "castigo_importe")
+    private BigDecimal castigo_importe;
 
-    private Integer pesoPeso;
+    @Column(name = "castigo_peso")
+    private Integer castigo_peso;
 
-    private BigDecimal castigoPlanilla;
+    @Column(columnDefinition = "DECIMAL(18,2)", name = "castigo_planilla")
+    private BigDecimal castigo_planilla;
 
-    private Vehiculo idVehiculo;
+    private Vehiculo id_vehiculo;
 
-    private Vehiculo vehiculoIdVehiculo;
+    private Vehiculo vehiculo_id_vehiculo;
 
-    private EmpresaTransporte codigoEt;
+    private EmpresaTransporte codigo_et;
+
 
     private Conductor conductor;
 
-    private Parcela idParcela;
 
-    private Producto codProducto;
+    private Parcela id_parcela;
 
+
+    private Producto cod_producto;
+
+    @Column(name = "estado")
     private String estado;
 
-    private String retencionFlete;
+    @Column(name = "retencion_flete")
+    private String retencion_flete;
 
-    private String montoFlete;
+    @Column(name = "monto_flete")
+    private String monto_flete;
 
-    private String tipoRegistro;
+    @Column(name = "tipo_registro")
+    private String tipo_registro;
 
+    @Column(name = "observaciones")
     private String observaciones;
 
+    @Column(name = "version")
     private Integer version;
 
-    private Integer idLiquidacion;
+    @Column(name = "id_liquidacion")
+    private Integer id_liquidacion;
 
-    private String usuarioIngreso;
+    @Column(name = "usuario_ingreso")
+    private String usuario_ingreso;
 
-    private String usuarioSalida;
+    @Column(name = "usuario_salida")
+    private String usuario_salida;
 
-    private String usuarioVersion;
+    @Column(name = "usuario_version")
+    private String usuario_version;
 
-    private LocalDateTime fechaSalida;
 
-    private LocalDateTime fechaAnul;
+    @Column(name = "fecha_salida", columnDefinition = "DATETIME2")
+    private LocalDateTime fecha_salida;
 
+    @Column(name = "fecha_anul")
+    private LocalDateTime fecha_anul;
+
+    @Column(name = "bitacora")
     private String bitacora;
 
-    private String estadoSinc;
+    @Column(name = "estado_sinc")
+    private String estado_sinc;
 
-    private String regGuia;
+    @Column(name = "reg_guia")
+    private String reg_guia;
 
+    @Column(name = "serie")
     private String serie;
 
+    @Column(name = "numero")
     private String numero;
 }

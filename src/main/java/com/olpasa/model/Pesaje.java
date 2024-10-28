@@ -18,21 +18,18 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Pesaje {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
-    @Column(name = "id_pesaje")
-    private Integer idPesaje;
-
+    private Integer id_pesaje;
     @Column(name = "num_ticket")
     private String num_ticket;
-
     @Column(name = "tipo_operacion")
     private String tipo_operacion;
 
     @ManyToOne
     @JoinColumn(name = "id_to", foreignKey = @ForeignKey(name = "fk_pesaje_operacion"))
-    private TipoOperacion idTo;
+    private TipoOperacion id_to;
 
     @ManyToOne
     @JoinColumn(name = "codigo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_persona"))
@@ -42,34 +39,33 @@ public class Pesaje {
     private LocalDate fecha;
 
     @Column(name = "peso_ingreso")
-    private Integer pesoIngreso;
+    private Integer peso_ingreso;
 
     @Column(name = "peso_salida")
-    private Integer pesoSalida;
+    private Integer peso_salida;
 
     @Column(name = "peso_neto")
-    private Integer pesoNeto;
+    private Integer peso_neto;
 
     @Column(columnDefinition = "DECIMAL(18,2)", name = "castigo_importe")
-    private BigDecimal castigoImporte;
+    private BigDecimal castigo_importe;
 
     @Column(name = "castigo_peso")
-    private Integer pesoPeso;
+    private Integer castigo_peso;
 
     @Column(columnDefinition = "DECIMAL(18,2)", name = "castigo_planilla")
-    private BigDecimal castigoPlanilla;
+    private BigDecimal castigo_planilla;
 
     @ManyToOne
     @JoinColumn(name = "id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
-    private Vehiculo idVehiculo;
+    private Vehiculo id_vehiculo;
 
     @ManyToOne
     @JoinColumn(name = "vehiculo_id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
-    private Vehiculo vehiculoIdVehiculo;
-
+    private Vehiculo vehiculo_id_vehiculo;
     @ManyToOne
     @JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
-    private EmpresaTransporte codigoEt;
+    private EmpresaTransporte codigo_et;
 
     @ManyToOne
     @JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
@@ -77,23 +73,23 @@ public class Pesaje {
 
     @ManyToOne
     @JoinColumn(name = "id_parcela", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
-    private Parcela idParcela;
+    private Parcela id_parcela;
 
     @ManyToOne
     @JoinColumn(name = "cod_producto",foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
-    private Producto codProducto;
+    private Producto cod_producto;
 
     @Column(name = "estado")
     private String estado;
 
     @Column(name = "retencion_flete")
-    private String retencionFlete;
+    private String retencion_flete;
 
     @Column(name = "monto_flete")
-    private String montoFlete;
+    private String monto_flete;
 
     @Column(name = "tipo_registro")
-    private String tipoRegistro;
+    private String tipo_registro;
 
     @Column(name = "observaciones")
     private String observaciones;
@@ -102,32 +98,32 @@ public class Pesaje {
     private Integer version;
 
     @Column(name = "id_liquidacion")
-    private Integer idLiquidacion;
+    private Integer id_liquidacion;
 
     @Column(name = "usuario_ingreso")
-    private String usuarioIngreso;
+    private String usuario_ingreso;
 
     @Column(name = "usuario_salida")
-    private String usuarioSalida;
+    private String usuario_salida;
 
     @Column(name = "usuario_version")
-    private String usuarioVersion;
+    private String usuario_version;
 
 
     @Column(name = "fecha_salida", columnDefinition = "DATETIME2")
-    private LocalDateTime fechaSalida;
+    private LocalDateTime fecha_salida;
 
     @Column(name = "fecha_anul")
-    private LocalDateTime fechaAnul;
+    private LocalDateTime fecha_anul;
 
     @Column(name = "bitacora")
     private String bitacora;
 
     @Column(name = "estado_sinc")
-    private String estadoSinc;
+    private String estado_sinc;
 
     @Column(name = "reg_guia")
-    private String regGuia;
+    private String reg_guia;
 
     @Column(name = "serie")
     private String serie;

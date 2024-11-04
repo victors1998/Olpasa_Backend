@@ -18,7 +18,7 @@ public class TipoOperacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_to")
-    private Integer idTo;
+    private Integer id_to;
 
     @Column(name = "descripcion", length = 250, nullable = false)
     private String descripcion;

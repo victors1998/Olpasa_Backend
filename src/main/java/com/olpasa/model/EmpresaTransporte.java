@@ -18,13 +18,13 @@ public class EmpresaTransporte {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "codigo_et")
-    private Integer codigoEt;
+    private Integer codigo_et;
 
     @Column(name = "estado", length = 20)
     private String estado;
 
     @Column(name = "id_cuenta")
-    private Integer idCuenta;
+    private Integer id_cuenta;
 
     @Column(name = "usuario", length = 30)
     private String usuario;

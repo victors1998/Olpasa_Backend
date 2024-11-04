@@ -16,15 +16,15 @@ public class UsuarioPrivilegio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_up")
-    private Integer idUp;
+    private Integer id_up;
 
     @ManyToOne
     @JoinColumn(name = "nombre_cuenta", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_privilegio_usuario"))
-    private Usuario nombreCuenta;
+    private Usuario nombre_cuenta;
 
     @ManyToOne
     @JoinColumn(name = "id_privilegio", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_privilegio_privilegio"))
-    private Privilegio idPrivilegio;
+    private Privilegio id_privilegio;
 
 
 }

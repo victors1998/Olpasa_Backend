@@ -42,13 +42,13 @@ public class EmpresaTransporteController {
     public ResponseEntity<EmpresaTransporteDto> save(@Valid @RequestBody EmpresaTransporteDto dto) {
         //EmpresaTransporte obj = empresaTransporteService.save(convertToEntity(dto));
         EmpresaTransporte obj = empresaTransporteService.save(mapperUtil.map(dto, EmpresaTransporte.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getCodigoEt()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getCodigo_et()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<EmpresaTransporteDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EmpresaTransporteDto dto) {
-        dto.setCodigoEt(id);
+        dto.setCodigo_et(id);
         //EmpresaTransporte obj = empresaTransporteService.update(id, convertToEntity(dto));
         EmpresaTransporte obj = empresaTransporteService.update(id, mapperUtil.map(dto, EmpresaTransporte.class));
         return ResponseEntity.ok(mapperUtil.map(obj, EmpresaTransporteDto.class));

@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/criterioCalidad")
+@RequestMapping("/criterioCalidades")
 @RequiredArgsConstructor
 public class CriterioCalidadController {
 
@@ -42,13 +42,13 @@ public class CriterioCalidadController {
     public ResponseEntity<CriterioCalidadDto> save(@Valid @RequestBody CriterioCalidadDto dto) {
         //CriterioCalidad obj = criterioCalidadService.save(convertToEntity(dto));
         CriterioCalidad obj = criterioCalidadService.save(mapperUtil.map(dto, CriterioCalidad.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdCriterio()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_criterio()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<CriterioCalidadDto> update(@Valid @PathVariable("id") Integer id, @RequestBody CriterioCalidadDto dto) {
-        dto.setIdCriterio(id);
+        dto.setId_criterio(id);
         //CriterioCalidad obj = criterioCalidadService.update(id, convertToEntity(dto));
         CriterioCalidad obj = criterioCalidadService.update(id, mapperUtil.map(dto, CriterioCalidad.class));
         return ResponseEntity.ok(mapperUtil.map(obj, CriterioCalidadDto.class));

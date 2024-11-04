@@ -18,19 +18,19 @@ public class ClasificacionContable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_clasificacion")
     @EqualsAndHashCode.Include
-    private Integer idClasificacionContable;
+    private Integer id_clasificacion;
 
     @Column(name = "descripcion", length = 100, nullable = false)
     private String descripcion;
 
     @Column(name = "cuenta_almacen", length = 10, nullable = false)
-    private String cuentaAlmacen;
+    private String cuenta_almacen;
 
     @Column(name = "cuenta_compra", length = 10, nullable = false)
-    private String cuentaCompra;
+    private String cuenta_compra;
 
     @Column(name = "cuenta_variacion", length = 10)
-    private String cuentaVariacion;
+    private String cuenta_variacion;
 
     
 }

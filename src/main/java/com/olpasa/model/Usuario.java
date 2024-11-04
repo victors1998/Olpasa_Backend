@@ -17,7 +17,7 @@ public class Usuario {
     @Id
     @EqualsAndHashCode.Include
     @Column(name = "nombre_cuenta", length = 50)
-    private String nombreCuenta;
+    private String nombre_cuenta;
 
     @Column(name = "nombres", length = 50)
     private String nombres;

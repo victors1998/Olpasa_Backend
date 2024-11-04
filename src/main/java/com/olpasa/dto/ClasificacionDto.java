@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClasificacionDto {
 
-    private Integer idClas;
+    private Integer id_clas;
 
     private String descripcion;
 

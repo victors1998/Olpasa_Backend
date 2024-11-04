@@ -19,15 +19,15 @@ public class EvaluacionCalidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_evaluacion")
-    private Integer idEvaluacion;
+    private Integer id_evaluacion;
 
     @ManyToOne
     @JoinColumn(name = "id_pesaje", nullable = false, foreignKey = @ForeignKey(name = "fk_evaluacionCalidad_pesaje"))
-    private Pesaje idPesaje;
+    private Pesaje id_pesaje;
 
     @ManyToOne
     @JoinColumn(name = "id_criterio", nullable = false, foreignKey = @ForeignKey(name = "fk_evaluacionCalidad_criterioCalidad"))
-    private CriterioCalidad idCriterio;
+    private CriterioCalidad id_criterio;
 
     @Column(columnDefinition = "DECIMAL(18,2)", name = "valor")
     private BigDecimal valor;

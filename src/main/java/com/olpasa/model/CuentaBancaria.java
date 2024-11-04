@@ -18,7 +18,7 @@ public class CuentaBancaria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_cuenta")
-    private Integer idCuenta;
+    private Integer id_cuenta;
 
     @ManyToOne
     @JoinColumn(name = "codigo", nullable = false, foreignKey = @ForeignKey(name = "persona_cuenta_bancaria_fk"))
@@ -26,7 +26,7 @@ public class CuentaBancaria {
 
     @ManyToOne
     @JoinColumn(name = "id_banco", nullable = false, foreignKey = @ForeignKey(name = "bancos_cuenta_bancaria_fk"))
-    private Banco idBanco;
+    private Banco id_banco;
 
     @Column(name = "numero", length = 30)
     private String numero;

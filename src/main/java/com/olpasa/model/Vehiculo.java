@@ -20,12 +20,12 @@ public class Vehiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_vehiculo")
-    private Integer idVehiculo;
+    private Integer id_vehiculo;
 
 
     @ManyToOne
     @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "empresa_transporte_vehiculo_fk"))
-    private EmpresaTransporte codigoEt;
+    private EmpresaTransporte codigo_et;
 
     @Column(name = "tipo")
     private String tipo;

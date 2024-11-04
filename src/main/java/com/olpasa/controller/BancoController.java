@@ -42,13 +42,13 @@ public class BancoController {
     public ResponseEntity<BancoDto> save(@Valid @RequestBody BancoDto dto) {
         //Banco obj = bancoService.save(convertToEntity(dto));
         Banco obj = bancoService.save(mapperUtil.map(dto, Banco.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdBanco()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_banco()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<BancoDto> update(@Valid @PathVariable("id") Integer id, @RequestBody BancoDto dto) {
-        dto.setIdBanco(id);
+        dto.setId_banco(id);
         //Banco obj = bancoService.update(id, convertToEntity(dto));
         Banco obj = bancoService.update(id, mapperUtil.map(dto, Banco.class));
         return ResponseEntity.ok(mapperUtil.map(obj, BancoDto.class));

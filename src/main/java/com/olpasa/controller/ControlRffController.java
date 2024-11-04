@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/controlRff")
+@RequestMapping("/controlrff")
 @RequiredArgsConstructor
 public class ControlRffController {
 
@@ -38,17 +38,24 @@ public class ControlRffController {
         return ResponseEntity.ok(mapperUtil.map(obj, ControlRffDto.class));
     }
 
+    @GetMapping("/buscar/{id_pesaje}")
+    public ResponseEntity<ControlRffDto> findByIdPesaje(@PathVariable("id_pesaje") Integer id_pesaje) {
+        ControlRff obj = controlRffService.buscarPorIdPesaje(id_pesaje);
+        //return ResponseEntity.ok(convertToDto(obj));
+        return ResponseEntity.ok(mapperUtil.map(obj, ControlRffDto.class));
+    }
+
     @PostMapping
     public ResponseEntity<ControlRffDto> save(@Valid @RequestBody ControlRffDto dto) {
         //ControlRff obj = controlRffService.save(convertToEntity(dto));
         ControlRff obj = controlRffService.save(mapperUtil.map(dto, ControlRff.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdControl()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_control()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<ControlRffDto> update(@Valid @PathVariable("id") Integer id, @RequestBody ControlRffDto dto) {
-        dto.setIdControl(id);
+        dto.setId_control(id);
         //ControlRff obj = controlRffService.update(id, convertToEntity(dto));
         ControlRff obj = controlRffService.update(id, mapperUtil.map(dto, ControlRff.class));
         return ResponseEntity.ok(mapperUtil.map(obj, ControlRffDto.class));

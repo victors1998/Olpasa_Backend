@@ -22,10 +22,10 @@ public class MapperConfig {
 
         // escritura de datos
         modelMapper.createTypeMap(ConductorDto.class, Conductor.class)
-                .addMapping(ConductorDto::getCodigoEt, (dest, v) -> dest.setCodigoEt((EmpresaTransporte) v));
+                .addMapping(ConductorDto::getCodigo_et, (dest, v) -> dest.setCodigo_et((EmpresaTransporte) v));
 
         modelMapper.createTypeMap(Conductor.class, ConductorDto.class)
-                .addMapping(Conductor::getCodigoEt, (dest, v) -> dest.setCodigoEt((EmpresaTransporte) v));
+                .addMapping(Conductor::getCodigo_et, (dest, v) -> dest.setCodigo_et((EmpresaTransporte) v));
 
         return modelMapper;
     }
@@ -35,10 +35,10 @@ public class MapperConfig {
 
         // escritura de datos
         modelMapper.createTypeMap(EmpresaTransporteDto.class, EmpresaTransporte.class)
-                .addMapping(EmpresaTransporteDto::getCodigoEt, (dest, v) -> dest.setCodigoEt((Integer) v));
+                .addMapping(EmpresaTransporteDto::getCodigo_et, (dest, v) -> dest.setCodigo_et((Integer) v));
 
         modelMapper.createTypeMap(EmpresaTransporte.class, EmpresaTransporteDto.class)
-                .addMapping(EmpresaTransporte::getCodigoEt, (dest, v) -> dest.setCodigoEt((Integer) v));
+                .addMapping(EmpresaTransporte::getCodigo_et, (dest, v) -> dest.setCodigo_et((Integer) v));
 
         return modelMapper;
     }

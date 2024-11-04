@@ -18,7 +18,7 @@ public class Clasificacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_clas")
     @EqualsAndHashCode.Include
-    private Integer idClas;
+    private Integer id_clas;
 
     @Column(name = "descripcion", length = 150)
     private String descripcion;

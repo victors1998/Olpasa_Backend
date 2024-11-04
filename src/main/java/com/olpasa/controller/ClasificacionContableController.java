@@ -42,13 +42,13 @@ public class ClasificacionContableController {
     public ResponseEntity<ClasificacionContableDto> save(@Valid @RequestBody ClasificacionContableDto dto) {
         //ClasificacionContable obj = clasificacionContableService.save(convertToEntity(dto));
         ClasificacionContable obj = clasificacionContableService.save(mapperUtil.map(dto, ClasificacionContable.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdClasificacionContable()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_clasificacion()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<ClasificacionContableDto> update(@Valid @PathVariable("id") Integer id, @RequestBody ClasificacionContableDto dto) {
-        dto.setIdClasificacionContable(id);
+        dto.setId_clasificacion(id);
         //ClasificacionContable obj = clasificacionContableService.update(id, convertToEntity(dto));
         ClasificacionContable obj = clasificacionContableService.update(id, mapperUtil.map(dto, ClasificacionContable.class));
         return ResponseEntity.ok(mapperUtil.map(obj, ClasificacionContableDto.class));

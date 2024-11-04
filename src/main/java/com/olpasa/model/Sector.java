@@ -19,13 +19,13 @@ public class Sector {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sector")
     @EqualsAndHashCode.Include
-    private Integer idSector;
+    private Integer id_sector;
 
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
     @Column(name = "codigo_tony")
-    private Integer codigoTony;
+    private Integer codigo_tony;
 
     @Column(name = "region", length = 10)
     private String region;

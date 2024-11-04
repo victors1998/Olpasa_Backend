@@ -18,11 +18,11 @@ public class ControlRff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_control")
-    private Integer idControl;
+    private Integer id_control;
 
     @ManyToOne
     @JoinColumn(name = "id_pesaje", foreignKey = @ForeignKey(name = "id_pesaje_control"))
-    private Pesaje idPesaje;
+    private Pesaje id_pesaje;
 
     @Column(name = "campaña")
     private String campaña;

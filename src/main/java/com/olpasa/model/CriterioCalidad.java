@@ -20,11 +20,11 @@ public class CriterioCalidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_criterio")
-    private Integer idCriterio;
+    private Integer id_criterio;
 
     @ManyToOne
     @JoinColumn(name = "codigo_um", nullable = false, foreignKey = @ForeignKey(name = "unidad_medida_criterio_calidad_fk"))
-    private UnidadMedida codigoUm;
+    private UnidadMedida codigo_um;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -33,16 +33,16 @@ public class CriterioCalidad {
     private String castigo;
 
     @Column(name = "forma_castigo")
-    private String formaCastigo;
+    private String forma_castigo;
 
     @Column(columnDefinition = "DECIMAL(18,2)", name = "factor_castigo")
-    private BigDecimal factorCastigo;
+    private BigDecimal factor_castigo;
 
     @Column(name = "factor_variable")
-    private String factorVariable;
+    private String factor_variable;
 
     @Column(name = "impresion_ticket")
-    private String impresionTicket;
+    private String impresion_ticket;
 
     @Column(name = "estado")
     private String estado;

@@ -16,21 +16,21 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class CriterioCalidadDto {
 
-    private Integer idCriterio;
+    private Integer id_criterio;
 
-    private UnidadMedida codigoUm;
+    private UnidadMedida codigo_um;
 
     private String descripcion;
 
     private String castigo;
 
-    private String formaCastigo;
+    private String forma_castigo;
 
-    private BigDecimal factorCastigo;
+    private BigDecimal factor_castigo;
 
-    private String factorVariable;
+    private String factor_variable;
 
-    private String impresionTicket;
+    private String impresion_ticket;
 
     private String estado;
 

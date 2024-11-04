@@ -22,13 +22,13 @@ public class Conductor {
 
     @ManyToOne
     @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "empresa_transporte_conductor_fk"))
-    private EmpresaTransporte codigoEt;
+    private EmpresaTransporte codigo_et;
 
     @Column(name = "licencia", length = 255)
     private String licencia;
 
     @Column(name = "numero_documento", length = 11)
-    private String numeroDocumento;
+    private String numero_documento;
 
     @Column(name = "categoria", length = 10)
     private String categoria;
@@ -49,6 +49,6 @@ public class Conductor {
     private String usuario;
 
     @Column(name = "cod_tipo_doc", length = 4)
-    private String codTipoDoc;
+    private String cod_tipo_doc;
 
 }

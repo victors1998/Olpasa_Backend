@@ -21,9 +21,12 @@ public class Pesaje {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pesaje")
     private Integer id_pesaje;
+
     @Column(name = "num_ticket")
     private String num_ticket;
+
     @Column(name = "tipo_operacion")
     private String tipo_operacion;
 

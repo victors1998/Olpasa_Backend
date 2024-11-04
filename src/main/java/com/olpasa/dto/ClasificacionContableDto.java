@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClasificacionContableDto {
 
-    private Integer idClasificacionContable;
+    private Integer id_clasificacion;
 
     private String descripcion;
 
-    private String cuentaAlmacen;
+    private String cuenta_almacen;
 
-    private String cuentaCompra;
+    private String cuenta_compra;
 
-    private String cuentaVariacion;
+    private String cuenta_variacion;
 }

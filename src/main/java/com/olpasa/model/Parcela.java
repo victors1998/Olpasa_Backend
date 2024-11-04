@@ -20,11 +20,11 @@ public class Parcela {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_parcela")
-    private Integer idParcela;
+    private Integer id_parcela;
 
     @ManyToOne
     @JoinColumn(name = "id_sector", nullable = false, foreignKey = @ForeignKey(name = "fk_parcela_sector"))
-    private Sector idSector;
+    private Sector id_sector;
 
     @ManyToOne
     @JoinColumn(name = "codigo", nullable = false, foreignKey = @ForeignKey(name = "fk_parcela_proveedor"))

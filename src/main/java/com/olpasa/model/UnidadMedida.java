@@ -20,14 +20,14 @@ public class UnidadMedida {
     @Id
     @EqualsAndHashCode.Include
     @Column(name = "codigo_um", length = 10)
-    private String codigoUm;
+    private String codigo_um;
 
     @Column(name = "descripcion", length = 20, nullable = false)
     private String descripcion;
 
     @Column(name = "codigo_onu", length = 15, nullable = false)
-    private String codigoOnu;
+    private String codigo_onu;
 
     @Column(name = "codigo_sunat", length = 15, nullable = false)
-    private String codigoSunat;
+    private String codigo_sunat;
 }

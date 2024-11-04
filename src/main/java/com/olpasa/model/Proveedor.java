@@ -22,29 +22,29 @@ public class Proveedor {
 
     @ManyToOne
     @JoinColumn(name = "id_sector", nullable = false, foreignKey = @ForeignKey(name = "sector_proveedor_fk"))
-    private Sector idSector;
+    private Sector id_sector;
 
     @ManyToOne
     @JoinColumn(name = "id_cuenta", nullable = false, foreignKey = @ForeignKey(name = "cuenta_bancaria_proveedor_fk"))
-    private CuentaBancaria idCuenta;
+    private CuentaBancaria id_cuenta;
 
     @Column(name = "es_mp")
-    private String esMp;
+    private String es_mp;
 
     @Column(name = "es_suministro")
-    private String esSuministro;
+    private String es_suministro;
 
     @Column(name = "estado")
     private String estado;
 
     @Column(name = "anexoconcar")
-    private String anexoConcar;
+    private String anexo_concar;
 
     @Column(name = "enviar_sms")
-    private String enviarSms;
+    private String enviar_sms;
 
     @Column(name = "tipo_comp")
-    private String tipoComp;
+    private String tipo_comp;
 
     @Column(name = "usuario")
     private String usuario;

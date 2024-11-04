@@ -14,13 +14,13 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class SectorDto {
 
-    private Integer idSector;
+    private Integer id_sector;
 
     @NonNull
     //@NotEmpty
     //@NotBlank
     @Size(min = 3, max = 70, message = "{nombre.size}")
     private String nombre;
-    private String codigoTony;
+    private String codigo_tony;
     private String region;
 }

@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ControlRffDto {
 
-    private Integer idControl;
+    private Integer id_control;
 
-    private Pesaje idPesaje;
+    private Pesaje id_pesaje;
 
     private String campaña;
 

@@ -7,6 +7,8 @@ import com.olpasa.service.IControlRffService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ControlRffServiceImpl extends CRUDImpl<ControlRff, Integer> implements IControlRffService {
@@ -16,5 +18,10 @@ public class ControlRffServiceImpl extends CRUDImpl<ControlRff, Integer> impleme
     @Override
     protected IGenericoRepo<ControlRff, Integer> getRepo() {
         return controlRffRepo;
+    }
+
+    @Override
+    public ControlRff buscarPorIdPesaje(Integer id_pesaje) {
+        return controlRffRepo.buscarIdPesaje(id_pesaje);
     }
 }

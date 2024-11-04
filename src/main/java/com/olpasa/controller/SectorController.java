@@ -44,13 +44,13 @@ public class SectorController {
     public ResponseEntity<SectorDto> save(@Valid @RequestBody SectorDto dto) {
         //Sector obj = sectorService.save(convertToEntity(dto));
         Sector obj = sectorService.save(mapperUtil.map(dto, Sector.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdSector()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_sector()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping
     public ResponseEntity<SectorDto> update(@Valid @PathVariable("id") Integer id, @RequestBody SectorDto dto) {
-        dto.setIdSector(id);
+        dto.setId_sector(id);
         //Sector obj = sectorService.update(id, convertToEntity(dto));
         Sector obj = sectorService.update(id, mapperUtil.map(dto, Sector.class));
         return ResponseEntity.ok(mapperUtil.map(obj, SectorDto.class));

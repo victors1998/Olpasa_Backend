@@ -24,10 +24,10 @@ public class Persona {
     private String tipo;
 
     @Column(name = "tipo_documento", length = 20)
-    private String tipoDocumento;
+    private String tipo_documento;
 
     @Column(name = "numero_documento")
-    private String numeroDocumento;
+    private String numero_documento;
 
     @Column(name = "nombres", length = 150)
     private String nombres;
@@ -57,13 +57,13 @@ public class Persona {
     private String esMp;
 
     @Column(name = "es_transportista", length = 5)
-    private String esTransportista;
+    private String es_transportista;
 
     @Column(name = "es_bienes", length = 5)
-    private String esBienes;
+    private String es_bienes;
 
     @Column(name = "anexo_concar_clientes", length = 20)
-    private String anexoConcarClientes;
+    private String anexo_concar_clientes;
 
     @Column(name = "cuenta", length = 20)
     private String cuenta;
@@ -72,14 +72,14 @@ public class Persona {
     private Integer banco;
 
     @Column(name = "codigo_tony")
-    private Integer codigoTony;
+    private Integer codigo_tony;
 
     @Column(name = "relacionado", length = 5)
     private String relacionado;
 
     @Column(name = "cod_ubigeo", length = 10)
-    private String codUbigeo;
+    private String cod_ubigeo;
 
     @Column(name = "cod_ubigeo2", length = 10)
-    private String codUbigeo2;
+    private String cod_ubigeo2;
 }

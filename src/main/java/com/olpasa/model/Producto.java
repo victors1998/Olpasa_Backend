@@ -20,25 +20,25 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "cod_producto")
-    private Integer codProducto;
+    private Integer cod_producto;
 
     @ManyToOne
     @JoinColumn(name = "codigo_um", nullable = false, foreignKey = @ForeignKey(name = "unidad_medida_producto_fk"))
-    private UnidadMedida codigoUm;
+    private UnidadMedida codigo_um;
 
     @ManyToOne
     @JoinColumn(name = "id_clasificacion", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion_contable"))
-    private ClasificacionContable idClasificacion;
+    private ClasificacionContable id_clasificacion;
 
     @ManyToOne
     @JoinColumn(name = "id_clas", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion"))
-    private Clasificacion idClas;
+    private Clasificacion id_clas;
 
     @Column(name = "descripcion", length = 150)
     private String descripcion;
 
     @Column(name = "precio_venta", columnDefinition = "DECIMAL(18,2)")
-    private BigDecimal precioVenta;
+    private BigDecimal precio_venta;
 
     @Column(name = "balanza", length = 5)
     private String balanza;
@@ -53,7 +53,7 @@ public class Producto {
     private BigDecimal stock;
 
     @Column(columnDefinition = "DECIMAL(18,3)", name = "stock_minimo")
-    private BigDecimal stockMinimo;
+    private BigDecimal stock_minimo;
 
     @Column(name = "ubicacion", length = 50)
     private String ubicacion;
@@ -62,8 +62,8 @@ public class Producto {
     private Integer version;
 
     @Column(name = "cuenta_venta_gravada", length = 8)
-    private String cuentaVentaGravada;
+    private String cuenta_venta_gravada;
 
     @Column(name = "cuenta_venta_exonerada", length = 8)
-    private String cuentaVentaExonerada;
+    private String cuenta_venta_exonerada;
 }

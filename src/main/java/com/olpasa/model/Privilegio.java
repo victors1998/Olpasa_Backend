@@ -18,7 +18,7 @@ public class Privilegio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     @Column(name = "id_privilegio")
-    private Integer idPrivilegio;
+    private Integer id_privilegio;
 
     @Column(name = "descripcion", length = 50)
     private String descripcion;

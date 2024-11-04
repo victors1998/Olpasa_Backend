@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BancoDto {
 
-    private Integer idBanco;
+    private Integer id_banco;
     private String nombre;
 }

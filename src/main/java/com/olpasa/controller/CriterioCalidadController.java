@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/criterioCalidades")
+@RequestMapping("/criterioCalidad")
 @RequiredArgsConstructor
 public class CriterioCalidadController {
 

@@ -1,0 +1,70 @@
+package com.olpasa.controller;
+
+import com.olpasa.dto.EvaluacionCalidadDto;
+import com.olpasa.model.EvaluacionCalidad;
+import com.olpasa.service.IEvaluacionCalidadService;
+import com.olpasa.util.MapperUtil;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+import java.util.List;
+
+@RestController
+@RequestMapping("/evaluacionCalidades")
+@RequiredArgsConstructor
+public class EvaluacionCalidadController {
+
+    private final IEvaluacionCalidadService evaluacionCalidadService;
+
+    /*@Qualifier("defaultMapper")
+    private final ModelMapper modelMapper;*/
+    private final MapperUtil mapperUtil;
+
+    @GetMapping
+    public ResponseEntity<List<EvaluacionCalidadDto>> findAll() {
+        //List<EvaluacionCalidadDto> list = evaluacionCalidadService.findAll().stream().map(this::convertToDto).toList();
+        List<EvaluacionCalidadDto> list = mapperUtil.mapList(evaluacionCalidadService.findAll(), EvaluacionCalidadDto.class);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<EvaluacionCalidadDto> findById(@PathVariable("id") Integer id) {
+        EvaluacionCalidad obj = evaluacionCalidadService.findById(id);
+        //return ResponseEntity.ok(convertToDto(obj));
+        return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
+    }
+
+    @PostMapping
+    public ResponseEntity<EvaluacionCalidadDto> save(@Valid @RequestBody EvaluacionCalidadDto dto) {
+        //EvaluacionCalidad obj = evaluacionCalidadService.save(convertToEntity(dto));
+        EvaluacionCalidad obj = evaluacionCalidadService.save(mapperUtil.map(dto, EvaluacionCalidad.class));
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdEvaluacion()).toUri();
+        return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping
+    public ResponseEntity<EvaluacionCalidadDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EvaluacionCalidadDto dto) {
+        dto.setIdEvaluacion(id);
+        //EvaluacionCalidad obj = evaluacionCalidadService.update(id, convertToEntity(dto));
+        EvaluacionCalidad obj = evaluacionCalidadService.update(id, mapperUtil.map(dto, EvaluacionCalidad.class));
+        return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
+    }
+
+    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
+        evaluacionCalidadService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+   /* private EvaluacionCalidadDto convertToDto(EvaluacionCalidad obj) {
+        return modelMapper.map(obj, EvaluacionCalidadDto.class);
+    }
+
+    private EvaluacionCalidad convertToEntity(EvaluacionCalidadDto dto) {
+        return modelMapper.map(dto, EvaluacionCalidad.class);
+    }*/
+
+}

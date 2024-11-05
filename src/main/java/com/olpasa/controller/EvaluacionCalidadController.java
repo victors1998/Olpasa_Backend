@@ -48,7 +48,7 @@ public class EvaluacionCalidadController {
 
     @PutMapping
     public ResponseEntity<EvaluacionCalidadDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EvaluacionCalidadDto dto) {
-        dto.setIdEvaluacion(id);
+        dto.setId_evaluacion(id);
         //EvaluacionCalidad obj = evaluacionCalidadService.update(id, convertToEntity(dto));
         EvaluacionCalidad obj = evaluacionCalidadService.update(id, mapperUtil.map(dto, EvaluacionCalidad.class));
         return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));

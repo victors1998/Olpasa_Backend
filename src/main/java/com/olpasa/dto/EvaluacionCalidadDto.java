@@ -14,11 +14,11 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class EvaluacionCalidadDto {
 
-    private Integer idEvaluacion;
+    private Integer id_evaluacion;
 
-    private Pesaje idPesaje;
+    private Pesaje id_pesaje;
 
-    private CriterioCalidad idCriterio;
+    private CriterioCalidad id_criterio;
 
     private BigDecimal valor;
 

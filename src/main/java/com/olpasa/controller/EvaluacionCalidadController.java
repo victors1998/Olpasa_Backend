@@ -42,7 +42,7 @@ public class EvaluacionCalidadController {
     public ResponseEntity<EvaluacionCalidadDto> save(@Valid @RequestBody EvaluacionCalidadDto dto) {
         //EvaluacionCalidad obj = evaluacionCalidadService.save(convertToEntity(dto));
         EvaluacionCalidad obj = evaluacionCalidadService.save(mapperUtil.map(dto, EvaluacionCalidad.class));
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getIdEvaluacion()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_evaluacion()).toUri();
         return ResponseEntity.created(location).build();
     }
 

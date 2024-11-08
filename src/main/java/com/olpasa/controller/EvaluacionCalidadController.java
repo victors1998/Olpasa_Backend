@@ -33,9 +33,9 @@ public class EvaluacionCalidadController {
 
     @GetMapping("/buscar/{id}")
     public ResponseEntity<List<EvaluacionCalidadDto>> findByIdPesaje(@PathVariable("id") Integer id) {
-        //List<EvaluacionCalidadDto> list = evaluacionCalidadService.findAll().stream().map(this::convertToDto).toList();
-        List<EvaluacionCalidadDto> list = mapperUtil.mapList(evaluacionCalidadService.findAll(), EvaluacionCalidadDto.class);
-        return ResponseEntity.ok(list);
+        List<EvaluacionCalidad> list = evaluacionCalidadService.findByIdPesaje(id);
+        List<EvaluacionCalidadDto> listDto = mapperUtil.mapList(list, EvaluacionCalidadDto.class);
+        return ResponseEntity.ok(listDto);
     }
 
     @GetMapping("/{id}")

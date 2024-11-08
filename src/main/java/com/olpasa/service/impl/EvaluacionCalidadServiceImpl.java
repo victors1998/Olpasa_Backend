@@ -23,6 +23,6 @@ public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, In
 
     @Override
     public List<EvaluacionCalidad> findByIdPesaje(Integer idPesaje) {
-        return  new ArrayList<eva>(evaluacionCalidadRepo.findAll());
+        return  evaluacionCalidadRepo.buscarIdPesaje(idPesaje);
     }
 }

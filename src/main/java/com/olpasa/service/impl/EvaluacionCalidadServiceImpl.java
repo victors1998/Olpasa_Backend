@@ -7,6 +7,9 @@ import com.olpasa.service.IEvaluacionCalidadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, Integer> implements IEvaluacionCalidadService {
@@ -16,5 +19,10 @@ public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, In
     @Override
     protected IGenericoRepo<EvaluacionCalidad, Integer> getRepo() {
         return evaluacionCalidadRepo;
+    }
+
+    @Override
+    public List<EvaluacionCalidad> findByIdPesaje(Integer idPesaje) {
+        return  new ArrayList<eva>(evaluacionCalidadRepo.findAll());
     }
 }

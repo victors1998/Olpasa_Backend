@@ -61,6 +61,8 @@ public class EvaluacionCalidadController {
         return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
     }
 
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
         evaluacionCalidadService.delete(id);
         return ResponseEntity.noContent().build();

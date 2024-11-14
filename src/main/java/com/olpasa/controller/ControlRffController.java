@@ -53,7 +53,7 @@ public class ControlRffController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<ControlRffDto> update(@Valid @PathVariable("id") Integer id, @RequestBody ControlRffDto dto) {
         dto.setId_control(id);
         //ControlRff obj = controlRffService.update(id, convertToEntity(dto));

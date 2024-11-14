@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -27,4 +29,6 @@ public class Usuario {
 
     @Column(name = "password", length = 250)
     private String password;
+
+    private List<Privilegio> privilegios;
 }

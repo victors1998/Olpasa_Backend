@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -30,4 +32,6 @@ public class UnidadMedida {
 
     @Column(name = "codigo_sunat", length = 15, nullable = false)
     private String codigo_sunat;
+
+
 }

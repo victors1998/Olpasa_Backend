@@ -31,11 +31,11 @@ public class PesajeController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<PesajeDto> findById(@PathVariable("id") Integer id) {
-        Pesaje obj = pesajeService.findById(id);
-        //return ResponseEntity.ok(convertToDto(obj));
-        return ResponseEntity.ok(mapperUtil.map(obj, PesajeDto.class));
+    @GetMapping("/{id_pesaje}")
+    public ResponseEntity<List<PesajeDto>> findById(@PathVariable("id_pesaje") Integer id_pesaje) {
+        List<Pesaje> list = pesajeService.buscarPorIdPesaje(id_pesaje);
+        List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
+        return ResponseEntity.ok(listDto);
     }
 
     @GetMapping("/destarar")

@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface IControlRffService extends ICRUD<ControlRff, Integer>{
 
-    ControlRff buscarPorIdPesaje(Integer id_pesaje);
+    List<ControlRff> buscarPorIdPesaje(Integer id_pesaje);
 }

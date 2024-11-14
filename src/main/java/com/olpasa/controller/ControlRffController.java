@@ -1,6 +1,7 @@
 package com.olpasa.controller;
 
 import com.olpasa.dto.ControlRffDto;
+import com.olpasa.dto.EvaluacionCalidadDto;
 import com.olpasa.model.ControlRff;
 import com.olpasa.service.IControlRffService;
 import com.olpasa.util.MapperUtil;
@@ -39,10 +40,10 @@ public class ControlRffController {
     }
 
     @GetMapping("/buscar/{id_pesaje}")
-    public ResponseEntity<ControlRffDto> findByIdPesaje(@PathVariable("id_pesaje") Integer id_pesaje) {
-        ControlRff obj = controlRffService.buscarPorIdPesaje(id_pesaje);
-        //return ResponseEntity.ok(convertToDto(obj));
-        return ResponseEntity.ok(mapperUtil.map(obj, ControlRffDto.class));
+    public ResponseEntity<List<ControlRffDto>> findByIdPesaje(@PathVariable("id_pesaje") Integer id_pesaje) {
+        List<ControlRff> list = controlRffService.buscarPorIdPesaje(id_pesaje);
+        List<ControlRffDto> listDto = mapperUtil.mapList(list, ControlRffDto.class);
+        return ResponseEntity.ok(listDto);
     }
 
     @PostMapping

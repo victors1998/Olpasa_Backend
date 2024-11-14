@@ -21,7 +21,7 @@ public class ControlRffServiceImpl extends CRUDImpl<ControlRff, Integer> impleme
     }
 
     @Override
-    public ControlRff buscarPorIdPesaje(Integer id_pesaje) {
+    public List<ControlRff> buscarPorIdPesaje(Integer id_pesaje) {
         return controlRffRepo.buscarIdPesaje(id_pesaje);
     }
 }

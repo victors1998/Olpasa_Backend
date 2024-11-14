@@ -9,5 +9,5 @@ import java.util.List;
 public interface IControlRffRepo extends IGenericoRepo<ControlRff, Integer> {
 
     @Query(value = "SELECT * FROM control_rff c WHERE id_pesaje=?1", nativeQuery = true)
-    ControlRff buscarIdPesaje(Integer id_pesaje);
+    List<ControlRff> buscarIdPesaje(Integer id_pesaje);
 }

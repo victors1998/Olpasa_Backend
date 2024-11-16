@@ -30,5 +30,10 @@ public class Usuario {
     @Column(name = "password", length = 250)
     private String password;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "usuario_privilegio",
+            joinColumns = @JoinColumn(name = "nombre_cuenta", referencedColumnName = "nombre_cuenta"),
+            inverseJoinColumns = @JoinColumn(name = "id_privilegio", referencedColumnName = "id_privilegio")
+    )
     private List<Privilegio> privilegios;
 }

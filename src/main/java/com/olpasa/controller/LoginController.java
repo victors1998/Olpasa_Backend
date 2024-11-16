@@ -1,6 +1,9 @@
 package com.olpasa.controller;
 
+import com.olpasa.security.JwtRequest;
+import com.olpasa.security.JwtResponse;
 import com.olpasa.security.JwtTokenUtil;
+import com.olpasa.security.JwtUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class LoginController {
 
-    //private final AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
-    //private final JwtUserDetailsService jwtUserDetailsService;
+    private final JwtUserDetailsService jwtUserDetailsService;
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest req) throws Exception {

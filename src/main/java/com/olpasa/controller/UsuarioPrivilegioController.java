@@ -1,5 +1,6 @@
 package com.olpasa.controller;
 
+import com.olpasa.dto.UsuarioPrivilegioDto;
 import com.olpasa.model.UsuarioPrivilegio;
 import com.olpasa.service.IUsuarioPrivilegioService;
 import com.olpasa.util.MapperUtil;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuario_privilegio")
+@RequestMapping("/privilegios")
 @RequiredArgsConstructor
 public class UsuarioPrivilegioController {
 
@@ -21,7 +22,8 @@ public class UsuarioPrivilegioController {
     private final MapperUtil mapperUtil;
 
     @PostMapping("/usuario")
-    public ResponseEntity<List<UsuarioPrivilegio>> getusuarioPrivilegioByUsuario() {
-        return null;
+    public ResponseEntity<List<UsuarioPrivilegioDto>> getusuarioPrivilegioByUsuario() {
+        List<UsuarioPrivilegioDto> usuario_privilegioDto = mapperUtil.mapList(usuarioPrivilegioService.getUsuarioPrivilegiosPorNombre(""), UsuarioPrivilegioDto.class);
+        return ResponseEntity.ok(usuario_privilegioDto);
     }
 }

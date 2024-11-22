@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IUsuarioPrivilegioService {
 
-    List<UsuarioPrivilegio> getUsuarioPrivilegiosPorNombre();
+    List<UsuarioPrivilegio> getUsuarioPrivilegiosPorNombre(String nombre_usuario);
 }

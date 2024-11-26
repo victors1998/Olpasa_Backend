@@ -23,7 +23,7 @@ public class UsuarioPrivilegioServiceImpl extends CRUDImpl<UsuarioPrivilegio, In
 
     @Override
     public List<UsuarioPrivilegio> getUsuarioPrivilegiosPorNombre(String nombre_cuenta) {
-        String contextUser = SecurityContextHolder.getContext().getAuthentication().getName();
-        return usuarioPrivilegioRepo.obtenerPrivilegiosPorUsuario(contextUser);
+       // String contextUser = SecurityContextHolder.getContext().getAuthentication().getName();
+        return usuarioPrivilegioRepo.obtenerPrivilegiosPorUsuario(nombre_cuenta);
     }
 }

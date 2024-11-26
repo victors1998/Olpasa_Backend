@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -26,6 +27,7 @@ public class SectorController {
     private final ModelMapper modelMapper;*/
     private final MapperUtil mapperUtil;
 
+    @PreAuthorize("@authorizeLogic.hasAccess('findAll')")
     @GetMapping
     public ResponseEntity<List<SectorDto>> findAll() {
         //List<SectorDto> list = sectorService.findAll().stream().map(this::convertToDto).toList();

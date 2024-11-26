@@ -7,6 +7,7 @@ import com.olpasa.util.MapperUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,9 @@ public class UsuarioPrivilegioController {
 
     private final MapperUtil mapperUtil;
 
-    @PostMapping("/usuario")
-    public ResponseEntity<List<UsuarioPrivilegioDto>> getusuarioPrivilegioByUsuario() {
-        List<UsuarioPrivilegioDto> usuario_privilegioDto = mapperUtil.mapList(usuarioPrivilegioService.getUsuarioPrivilegiosPorNombre(""), UsuarioPrivilegioDto.class);
+    @PostMapping("/user")
+    public ResponseEntity<List<UsuarioPrivilegioDto>> getusuarioPrivilegioByUsuario(@RequestBody String username) {
+        List<UsuarioPrivilegioDto> usuario_privilegioDto = mapperUtil.mapList(usuarioPrivilegioService.getUsuarioPrivilegiosPorNombre(username), UsuarioPrivilegioDto.class);
         return ResponseEntity.ok(usuario_privilegioDto);
     }
 }

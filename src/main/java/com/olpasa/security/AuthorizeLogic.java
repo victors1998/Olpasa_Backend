@@ -15,7 +15,7 @@ public class AuthorizeLogic {
         boolean result = false;
 
         String methodRole = switch(path){
-            case "findAll" -> "ADMIN";
+            case "findAll" -> "Control-calidad";
             case "findById", "getBydId" -> "USER,DBA";
             default -> "ROOT";
         };

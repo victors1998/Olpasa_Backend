@@ -2,5 +2,9 @@ package com.olpasa.service;
 
 import com.olpasa.model.Privilegio;
 
-public interface IPrivilegioService extends ICRUD<Privilegio, Integer>{
+import java.util.List;
+
+public interface IPrivilegioService{
+
+    List<Privilegio> getUsuarioPrivilegiosPorNombre(String nombre_cuenta);
 }

@@ -7,6 +7,8 @@ import com.olpasa.service.IPrivilegioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PrivilegioServiceImpl extends CRUDImpl<Privilegio, Integer> implements IPrivilegioService {
@@ -16,5 +18,10 @@ public class PrivilegioServiceImpl extends CRUDImpl<Privilegio, Integer> impleme
     @Override
     protected IGenericoRepo<Privilegio, Integer> getRepo() {
         return privilegioRepo;
+    }
+
+    @Override
+    public List<Privilegio> getUsuarioPrivilegiosPorNombre(String nombre_cuenta) {
+        return privilegioRepo.getPrivilegioByUsername(nombre_cuenta);
     }
 }

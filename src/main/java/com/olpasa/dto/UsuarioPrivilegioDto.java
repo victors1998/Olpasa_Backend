@@ -3,8 +3,6 @@ package com.olpasa.dto;
 
 import com.olpasa.model.Privilegio;
 import com.olpasa.model.Usuario;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

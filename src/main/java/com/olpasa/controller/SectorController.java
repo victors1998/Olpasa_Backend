@@ -27,7 +27,7 @@ public class SectorController {
     private final ModelMapper modelMapper;*/
     private final MapperUtil mapperUtil;
 
-    @PreAuthorize("@authorizeLogic.hasAccess('findAll')")
+    //@PreAuthorize("@authorizeLogic.hasAccess('findAll')")
     @GetMapping
     public ResponseEntity<List<SectorDto>> findAll() {
         //List<SectorDto> list = sectorService.findAll().stream().map(this::convertToDto).toList();

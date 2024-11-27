@@ -28,4 +28,5 @@ public class Privilegio {
 
     @Column(name = "Modulo", length = 150)
     private String modulo;
+
 }

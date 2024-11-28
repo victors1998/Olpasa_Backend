@@ -23,8 +23,9 @@ public class PrivilegioController {
     private final MapperUtil mapperUtil;
 
     @PostMapping("/user")
-    public ResponseEntity<List<PrivilegioDto>> getusuarioPrivilegioByUsuario(@RequestBody String nombre_cuenta) {
-        List<PrivilegioDto> privilegioDto = mapperUtil.mapList(privilegioService.getUsuarioPrivilegiosPorNombre(nombre_cuenta), PrivilegioDto.class);
+    public ResponseEntity<List<PrivilegioDto>> getPrivilegioByUsername(@RequestBody String nombre_cuenta) {  //@RequestBody String nombre_cuenta
+       // List<PrivilegioDto> privilegioDto = mapperUtil.mapList(privilegioService.getUsuarioPrivilegiosPorNombre(nombre_cuenta), PrivilegioDto.class);
+        List<PrivilegioDto> privilegioDto = mapperUtil.mapList(privilegioService.getPrivilegioByUsername(nombre_cuenta), PrivilegioDto.class);
         return ResponseEntity.ok(privilegioDto);
     }
 }

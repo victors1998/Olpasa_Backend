@@ -5,6 +5,7 @@ import com.olpasa.repo.IGenericoRepo;
 import com.olpasa.repo.IPrivilegioRepo;
 import com.olpasa.service.IPrivilegioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +21,11 @@ public class PrivilegioServiceImpl extends CRUDImpl<Privilegio, Integer> impleme
         return privilegioRepo;
     }
 
+
     @Override
-    public List<Privilegio> getUsuarioPrivilegiosPorNombre(String nombre_cuenta) {
+    public List<Privilegio> getPrivilegioByUsername(String nombre_cuenta) {
+        //String contextUser = SecurityContextHolder.getContext().getAuthentication().getName();
         return privilegioRepo.getPrivilegioByUsername(nombre_cuenta);
+        //return privilegioRepo.getPrivilegioByUsername(contextUser);
     }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IPrivilegioService{
 
-    List<Privilegio> getUsuarioPrivilegiosPorNombre(String nombre_cuenta);
+    List<Privilegio> getPrivilegioByUsername(String nombre_cuenta);
 }

@@ -64,14 +64,14 @@ public class Pesaje {
     private Vehiculo id_vehiculo;
 
     @ManyToOne
-    @JoinColumn(name = "vehiculo_id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
+    @JoinColumn(name = "vehiculo_id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
     private Vehiculo vehiculo_id_vehiculo;
     @ManyToOne
-    @JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
+    @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
     private EmpresaTransporte codigo_et;
 
     @ManyToOne
-    @JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
+    @JoinColumn(name = "conductor", nullable = false, foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
     private Conductor conductor;
 
     @ManyToOne
@@ -79,7 +79,7 @@ public class Pesaje {
     private Parcela id_parcela;
 
     @ManyToOne
-    @JoinColumn(name = "cod_producto",foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
+    @JoinColumn(name = "cod_producto", nullable = false, foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
     private Producto cod_producto;
 
     @Column(name = "estado")

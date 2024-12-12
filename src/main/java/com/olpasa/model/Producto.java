@@ -22,20 +22,12 @@ public class Producto {
     @Column(name = "cod_producto")
     private Integer cod_producto;
 
+    @Column(name = "descripcion", length = 150)
+    private String descripcion;
+
     @ManyToOne
     @JoinColumn(name = "codigo_um", nullable = false, foreignKey = @ForeignKey(name = "unidad_medida_producto_fk"))
     private UnidadMedida codigo_um;
-
-    @ManyToOne
-    @JoinColumn(name = "id_clasificacion", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion_contable"))
-    private ClasificacionContable id_clasificacion;
-
-    @ManyToOne
-    @JoinColumn(name = "id_clas", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion"))
-    private Clasificacion id_clas;
-
-    @Column(name = "descripcion", length = 150)
-    private String descripcion;
 
     @Column(name = "precio_venta", columnDefinition = "DECIMAL(18,2)")
     private BigDecimal precio_venta;
@@ -60,6 +52,14 @@ public class Producto {
 
     @Column(name = "version")
     private Integer version;
+
+    @ManyToOne
+    @JoinColumn(name = "id_clasificacion", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion_contable"))
+    private ClasificacionContable id_clasificacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_clas", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion"))
+    private Clasificacion id_clas;
 
     @Column(name = "cuenta_venta_gravada", length = 8)
     private String cuenta_venta_gravada;

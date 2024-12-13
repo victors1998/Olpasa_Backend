@@ -21,12 +21,8 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     }
 
     @Override
-    public List<Pesaje> listarPorEstado() {
-        return pesajeRepo.leerPorEstado();
+    public List<Pesaje> findPesajeByEstado() {
+        return pesajeRepo.findPesajeByEstado();
     }
 
-    @Override
-    public List<Pesaje> buscarPorIdPesaje(Integer id_pesaje) {
-        return pesajeRepo.buscarIdPesaje(id_pesaje);
-    }
 }

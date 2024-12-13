@@ -26,7 +26,7 @@ public class Producto {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_um", nullable = false, foreignKey = @ForeignKey(name = "unidad_medida_producto_fk"))
+    @JoinColumn(name = "codigo_um", foreignKey = @ForeignKey(name = "unidad_medida_producto_fk"))
     private UnidadMedida codigo_um;
 
     @Column(name = "precio_venta", columnDefinition = "DECIMAL(18,2)")
@@ -54,7 +54,7 @@ public class Producto {
     private Integer version;
 
     @ManyToOne
-    @JoinColumn(name = "id_clasificacion", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_clasificacion_contable"))
+    @JoinColumn(name = "id_clasificacion", foreignKey = @ForeignKey(name = "FK_producto_clasificacion_contable"))
     private ClasificacionContable id_clasificacion;
 
     @ManyToOne

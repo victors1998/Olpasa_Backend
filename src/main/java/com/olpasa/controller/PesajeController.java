@@ -32,18 +32,33 @@ public class PesajeController {
     }
 
     @GetMapping("/{id_pesaje}")
-    public ResponseEntity<List<PesajeDto>> findById(@PathVariable("id_pesaje") Integer id_pesaje) {
-        List<Pesaje> list = pesajeService.buscarPorIdPesaje(id_pesaje);
-        List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
-        return ResponseEntity.ok(listDto);
+    public ResponseEntity<PesajeDto> findById(@PathVariable("id_pesaje") Integer id_pesaje) {
+        Pesaje obj = pesajeService.findById(id_pesaje);
+        //List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
+        return ResponseEntity.ok(mapperUtil.map(obj, PesajeDto.class));
     }
 
-    @GetMapping("/destarar")
+   /* @GetMapping("/{id_pesaje1}")
+    public ResponseEntity<List<PesajeDto>> findById1(@PathVariable("id_pesaje") Integer id_pesaje) {
+        List<Pesaje> list = pesajeService.buscarPorIdPesaje(id_pesaje);
+        List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
+       return ResponseEntity.ok(listDto);
+  }*/
+
+   /* @GetMapping("/destarar")
     public ResponseEntity<List<PesajeDto>> destarar() {
         //List<PesajeDto> list = pesajeService.findAll().stream().map(this::convertToDto).toList();
         List<PesajeDto> list = mapperUtil.mapList(pesajeService.listarPorEstado(), PesajeDto.class);
         return ResponseEntity.ok(list);
+    }*/
+
+    @GetMapping("/destarar")
+    public ResponseEntity<List<PesajeDto>> destarar() {
+        List<PesajeDto> list = mapperUtil.mapList(pesajeService.findPesajeByEstado(), PesajeDto.class);
+        return ResponseEntity.ok(list);
     }
+
+
 
     @PostMapping
     public ResponseEntity<PesajeDto> save(@Valid @RequestBody PesajeDto dto) {

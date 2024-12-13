@@ -35,7 +35,7 @@ public class Pesaje {
     private TipoOperacion id_to;
 
     @ManyToOne
-    @JoinColumn(name = "codigo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_persona"))
+    @JoinColumn(name = "codigo", foreignKey = @ForeignKey(name = "fk_pesaje_persona"))
     private Persona codigo;
 
     @Column(name = "fecha")
@@ -60,26 +60,26 @@ public class Pesaje {
     private BigDecimal castigo_planilla;
 
     @ManyToOne
-    @JoinColumn(name = "id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
+    @JoinColumn(name = "id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo"))
     private Vehiculo id_vehiculo;
 
     @ManyToOne
-    @JoinColumn(name = "vehiculo_id_vehiculo", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
+    @JoinColumn(name = "vehiculo_id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
     private Vehiculo vehiculo_id_vehiculo;
     @ManyToOne
-    @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
+    @JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
     private EmpresaTransporte codigo_et;
 
     @ManyToOne
-    @JoinColumn(name = "conductor", nullable = false, foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
+    @JoinColumn(name = "conductor", foreignKey = @ForeignKey(name = "FK_pesaje_conductor"))
     private Conductor conductor;
 
     @ManyToOne
-    @JoinColumn(name = "id_parcela", nullable = false, foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
+    @JoinColumn(name = "id_parcela", foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
     private Parcela id_parcela;
 
     @ManyToOne
-    @JoinColumn(name = "cod_producto", nullable = false, foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
+    @JoinColumn(name = "cod_producto", nullable = true, foreignKey = @ForeignKey(name = "producto_pesaje_fk"))
     private Producto cod_producto;
 
     @Column(name = "estado")

@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
-    List<Pesaje> listarPorEstado();
+    List<Pesaje> findPesajeByEstado();
 
-    List<Pesaje> buscarPorIdPesaje(Integer id_pesaje);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
 
-    @Query(value = "SELECT * FROM pesaje p WHERE estado='A'", nativeQuery = true)
+    @Query(value = "SELECT * FROM pesaje WHERE estado='A'", nativeQuery = true)
     List<Pesaje> findPesajeByEstado();
 
 

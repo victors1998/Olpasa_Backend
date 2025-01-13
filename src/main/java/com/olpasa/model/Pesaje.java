@@ -75,7 +75,7 @@ public class Pesaje {
     private Conductor conductor;
 
     @ManyToOne
-    @JoinColumn(name = "id_parcela", foreignKey = @ForeignKey(name = "fk_pesaje_parcela"))
+    @JoinColumn(name = "id_parcela", nullable = true, foreignKey = @ForeignKey(name = "parcela_pesaje_fk"))
     private Parcela id_parcela;
 
     @ManyToOne

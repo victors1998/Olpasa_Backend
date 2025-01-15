@@ -9,11 +9,11 @@ import java.util.List;
 public interface IMenuRepo extends IGenericoRepo<Menu, Integer>{
 
     @Query(value = """
-                                select m.* from menu_role mr
-                                inner join user_role ur on ur.id_role = mr.id_role
-                                inner join menu m on m.id_menu = mr.id_menu
-                                inner join user_data u on u.id_user = ur.id_user
-                                where u.username = :username
+                                           select m.* from menu_privilegio as mp\s
+                                           inner join usuario_privilegio up on mp.id_privilegio=up.id_privilegio
+                                		   inner join menu as m on m.id_menu=mp.id_menu
+                                		   inner join usuario as u on u.nombre_cuenta=up.nombre_cuenta
+                                		   where u.nombre_cuenta = :username
         """, nativeQuery = true)
     List<Menu> getMenusByUsername(@Param("username") String username);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface IMenuRepo extends IGenericoRepo<Menu, Integer>{
 
     @Query(value = """
-                                           select m.* from menu_privilegio as mp\s
+                                           select m.* from menu_privilegio as mp as
                                            inner join usuario_privilegio up on mp.id_privilegio=up.id_privilegio
                                 		   inner join menu as m on m.id_menu=mp.id_menu
                                 		   inner join usuario as u on u.nombre_cuenta=up.nombre_cuenta

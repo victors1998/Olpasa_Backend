@@ -23,8 +23,8 @@ public class MesnuServiceImpl extends CRUDImpl<Menu, Integer> implements IMenuSe
 
 
     @Override
-    public List<Menu> getMenusByUsername(String username) {
+    public List<Menu> getMenusByUsername(String nombre_cuenta) {
         //String contextUser = SecurityContextHolder.getContext().getAuthentication().getName();
-        return repo.getMenusByUsername(username);
+        return repo.getMenusByUsername(nombre_cuenta);
     }
 }

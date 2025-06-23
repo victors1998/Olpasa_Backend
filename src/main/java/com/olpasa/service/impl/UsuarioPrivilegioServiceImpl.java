@@ -6,7 +6,6 @@ import com.olpasa.repo.IGenericoRepo;
 import com.olpasa.repo.IUsuarioPrivilegioRepo;
 import com.olpasa.service.IUsuarioPrivilegioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

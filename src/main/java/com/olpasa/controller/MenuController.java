@@ -24,7 +24,7 @@ public class MenuController {
     private final MapperUtil mapperUtil;
 
     @PostMapping("/user")
-    public ResponseEntity<List<MenuDTO>> getPrivilegioByUsername(@RequestBody String nombre_cuenta) {  //@RequestBody String nombre_cuenta
+    public ResponseEntity<List<MenuDTO>> getMenuByNombreUsuario(@RequestBody String nombre_cuenta) {  //@RequestBody String nombre_cuenta
         // List<PrivilegioDto> privilegioDto = mapperUtil.mapList(privilegioService.getUsuarioPrivilegiosPorNombre(nombre_cuenta), PrivilegioDto.class);
         List<MenuDTO> menuDTO = mapperUtil.mapList(menuService.getMenusByUsername(nombre_cuenta), MenuDTO.class);
         return ResponseEntity.ok(menuDTO);

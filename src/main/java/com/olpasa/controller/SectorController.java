@@ -49,7 +49,7 @@ public class SectorController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<SectorDto> update(@Valid @PathVariable("id") Integer id, @RequestBody SectorDto dto) {
         dto.setId_sector(id);
         //Sector obj = sectorService.update(id, convertToEntity(dto));

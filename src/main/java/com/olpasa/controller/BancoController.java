@@ -46,7 +46,7 @@ public class BancoController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<BancoDto> update(@Valid @PathVariable("id") Integer id, @RequestBody BancoDto dto) {
         dto.setId_banco(id);
         //Banco obj = bancoService.update(id, convertToEntity(dto));

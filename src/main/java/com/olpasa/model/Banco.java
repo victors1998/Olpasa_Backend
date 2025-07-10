@@ -23,4 +23,6 @@ public class Banco {
     @Column(name = "nombre", length = 150)
     private String nombre;
 
+
+
 }

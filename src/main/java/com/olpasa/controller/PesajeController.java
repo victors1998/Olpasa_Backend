@@ -1,6 +1,7 @@
 package com.olpasa.controller;
 
 import com.olpasa.dto.PesajeDto;
+import com.olpasa.dto.PesoDestare;
 import com.olpasa.model.Pesaje;
 import com.olpasa.service.IPesajeService;
 import com.olpasa.util.MapperUtil;
@@ -53,8 +54,9 @@ public class PesajeController {
     }*/
 
     @GetMapping("/destarar")
-    public ResponseEntity<List<PesajeDto>> destarar() {
-        List<PesajeDto> list = mapperUtil.mapList(pesajeService.findPesajeByEstado(), PesajeDto.class);
+    public ResponseEntity<List<PesoDestare>> destarar() {
+       // List<PesajeDto> list = mapperUtil.mapList(pesajeService.findPesajeByEstado(), PesajeDto.class);
+        var list = pesajeService.findPesajeByEstado();
         return ResponseEntity.ok(list);
     }
 

@@ -1,17 +1,20 @@
-package com.olpasa.repo;
+package com.olpasa.dto;
 
-import com.olpasa.dto.PesoDestare;
-import com.olpasa.model.ControlRff;
-import com.olpasa.model.Pesaje;
-import com.olpasa.model.Sector;
+import lombok.Data;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
+//@Datas
+public interface PesoDestare {
 
-public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
+      int getIdPesaje ();
+     String getTransportista();
+     String getNumTicket();
+     String getProveedor();
 
-    @Query(value = "SELECT pe.id_pesaje, pe.num_ticket,concat( per.paterno,' ', per.materno,'', per.nombres) as proveedor,\n" +
-            "ve.placa,concat( per2.paterno,' ', per2.materno,' ', per2.nombres) as transportista, pe.bitacora, pe.castigo_importe,\n" +
+
+/*
+    @Query(value = "SELECT pe.id_pesaje, pe.num_ticket,per.paterno, per.materno, per.nombres,\n" +
+            "ve.placa,per2.paterno, per2.materno, per2.nombres, pe.bitacora, pe.castigo_importe,\n" +
             "pe.castigo_peso, pe.castigo_planilla, pe.cod_producto, pe.codigo, pe.codigo_et, pe.conductor,\n" +
             "pe.estado, pe.estado_sinc, pe.fecha, pe.fecha_anul, pe.fecha_salida, pe.id_liquidacion,\n" +
             "pe.id_parcela, pe.id_to, pe.id_vehiculo, pe.monto_flete, pe.numero, pe.tipo_operacion,\n" +
@@ -21,9 +24,7 @@ public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
             "FROM pesaje AS pe INNER JOIN proveedor AS pro ON pe.codigo = pro.codigo\n" +
             "INNER JOIN persona AS per ON pe.codigo = per.codigo\n" +
             "INNER JOIN vehiculo AS ve ON pe.id_vehiculo = ve.id_vehiculo\n" +
-            "LEFT JOIN persona AS per2 ON per2.codigo = pe.codigo_et\n" +
-            "WHERE pe.estado = 'A' order by pe.id_pesaje", nativeQuery = true)
-    List<PesoDestare> findPesajeByEstado();
-
-
+            "INNER JOIN empresa_transporte AS em ON pe.codigo_et = em.codigo_et\n" +
+            "LEFT JOIN persona AS per2 ON em.codigo_et = per2.codigo\n" +
+            "WHERE pe.estado = 'A' order by pe.id_pesaje", nativeQuery = true)*/
 }

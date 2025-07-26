@@ -1,5 +1,6 @@
 package com.olpasa.service.impl;
 
+import com.olpasa.dto.PesoDestare;
 import com.olpasa.model.Pesaje;
 import com.olpasa.repo.IGenericoRepo;
 import com.olpasa.repo.IPesajeRepo;
@@ -21,7 +22,7 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     }
 
     @Override
-    public List<Pesaje> findPesajeByEstado() {
+    public List<PesoDestare> findPesajeByEstado() {
         return pesajeRepo.findPesajeByEstado();
     }
 

@@ -8,6 +8,7 @@ public interface PesoDestare {
 
       int getIdPesaje ();
      String getTransportista();
+     String getPlaca();
      String getNumTicket();
      String getProveedor();
 

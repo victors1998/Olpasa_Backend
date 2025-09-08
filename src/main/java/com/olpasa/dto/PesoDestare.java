@@ -1,9 +1,11 @@
 package com.olpasa.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.repository.Query;
 
-//@Datas
+
 public interface PesoDestare {
 
       int getIdPesaje ();

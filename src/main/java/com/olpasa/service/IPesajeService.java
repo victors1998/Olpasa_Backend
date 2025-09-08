@@ -12,4 +12,6 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
     List<PesoDestare> findPesajeByEstado();
 
+    PesoDestare getPesajeById_pesaje(Integer id_pesaje);
+
 }

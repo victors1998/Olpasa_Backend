@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,6 +47,15 @@ public class EvaluacionCalidad {
 
     @Column(name = "usuario")
     private String usuario;
+
+    @Column(name = "estado")
+    private String estado;
+
+    @Column(name = "usuario_mod")
+    private String usuario_mod;
+
+    @Column(name = "fecha_mod")
+    private LocalDate fecha_mod;
 
     @Column(name = "tam_rac")
     private String tam_rac;

@@ -3,11 +3,13 @@ package com.olpasa.dto;
 
 import com.olpasa.model.CriterioCalidad;
 import com.olpasa.model.Pesaje;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -31,6 +33,12 @@ public class EvaluacionCalidadDto {
     private String factor_castigo;
 
     private String usuario;
+
+    private String estado;
+
+    private String usuario_mod;
+
+    private LocalDate fecha_mod;
 
     private String tam_rac;
 }

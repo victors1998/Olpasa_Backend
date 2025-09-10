@@ -25,4 +25,9 @@ public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, In
     public List<EvaluacionCalidad> findByIdPesaje(Integer idPesaje) {
         return  evaluacionCalidadRepo.buscarIdPesaje(idPesaje);
     }
+
+    @Override
+    public EvaluacionCalidad getDeteleteByEstado(Integer id_evaluacion) {
+        return evaluacionCalidadRepo.deleteEvaluacionCalidadByEstado(id_evaluacion);
+    }
 }

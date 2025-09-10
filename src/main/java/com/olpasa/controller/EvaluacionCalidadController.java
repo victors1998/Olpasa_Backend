@@ -53,11 +53,19 @@ public class EvaluacionCalidadController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping
+    @PutMapping("/delete")
     public ResponseEntity<EvaluacionCalidadDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EvaluacionCalidadDto dto) {
         dto.setId_evaluacion(id);
         //EvaluacionCalidad obj = evaluacionCalidadService.update(id, convertToEntity(dto));
         EvaluacionCalidad obj = evaluacionCalidadService.update(id, mapperUtil.map(dto, EvaluacionCalidad.class));
+        return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
+    }
+
+    @PutMapping
+    public ResponseEntity<EvaluacionCalidadDto> eliminarEvaluacionCalidad(@Valid @PathVariable("id") Integer id_evaluacion, @RequestBody EvaluacionCalidadDto dto) {
+        dto.setId_evaluacion(id_evaluacion);
+        //EvaluacionCalidad obj = evaluacionCalidadService.update(id, convertToEntity(dto));
+        EvaluacionCalidad obj = evaluacionCalidadService.update(id_evaluacion, mapperUtil.map(dto, EvaluacionCalidad.class));
         return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
     }
 

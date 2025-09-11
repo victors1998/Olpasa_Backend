@@ -27,7 +27,10 @@ public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, In
     }
 
     @Override
-    public EvaluacionCalidad getDeteleteByEstado(Integer id_evaluacion) {
-        return evaluacionCalidadRepo.deleteEvaluacionCalidadByEstado(id_evaluacion);
+    public EvaluacionCalidad eliminarEvaluacionCalidad(Integer id_evaluacion) {
+        EvaluacionCalidad evaluacion = evaluacionCalidadRepo.findById(id_evaluacion).orElseThrow(() -> new RuntimeException("No se encontro el id del evaluacion"));
+        evaluacion.setEstado("Anulado");
+        return evaluacionCalidadRepo.save(evaluacion);
     }
+
 }

@@ -11,5 +11,6 @@ public interface IEvaluacionCalidadService extends ICRUD<EvaluacionCalidad, Inte
 
     List<EvaluacionCalidad> findByIdPesaje(Integer idPesaje);
 
-    EvaluacionCalidad getDeteleteByEstado(Integer id_evaluacion);
+    public EvaluacionCalidad eliminarEvaluacionCalidad(Integer id_evaluacion);
+
 }

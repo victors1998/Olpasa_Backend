@@ -53,14 +53,6 @@ public class EvaluacionCalidadController {
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping("/delete")
-    public ResponseEntity<EvaluacionCalidadDto> update(@Valid @PathVariable("id") Integer id, @RequestBody EvaluacionCalidadDto dto) {
-        dto.setId_evaluacion(id);
-        //EvaluacionCalidad obj = evaluacionCalidadService.update(id, convertToEntity(dto));
-        EvaluacionCalidad obj = evaluacionCalidadService.update(id, mapperUtil.map(dto, EvaluacionCalidad.class));
-        return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
-    }
-
     @PutMapping
     public ResponseEntity<EvaluacionCalidadDto> eliminarEvaluacionCalidad(@Valid @PathVariable("id") Integer id_evaluacion, @RequestBody EvaluacionCalidadDto dto) {
         dto.setId_evaluacion(id_evaluacion);
@@ -69,19 +61,16 @@ public class EvaluacionCalidadController {
         return ResponseEntity.ok(mapperUtil.map(obj, EvaluacionCalidadDto.class));
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
         evaluacionCalidadService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-   /* private EvaluacionCalidadDto convertToDto(EvaluacionCalidad obj) {
-        return modelMapper.map(obj, EvaluacionCalidadDto.class);
+    @PutMapping("/delete/{id_evaluacion}")
+    public ResponseEntity<String> deleteEva(@PathVariable Integer id_evaluacion) {
+        evaluacionCalidadService.eliminarEvaluacionCalidad(id_evaluacion);
+        return ResponseEntity.ok("Evaluación anulada correctamente");
     }
-
-    private EvaluacionCalidad convertToEntity(EvaluacionCalidadDto dto) {
-        return modelMapper.map(dto, EvaluacionCalidad.class);
-    }*/
 
 }

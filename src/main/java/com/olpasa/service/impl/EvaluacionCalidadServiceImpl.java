@@ -33,4 +33,10 @@ public class EvaluacionCalidadServiceImpl extends CRUDImpl<EvaluacionCalidad, In
         return evaluacionCalidadRepo.save(evaluacion);
     }
 
+    @Override
+    public boolean existsByPesajeAndCriterioActivo(Integer idPesaje, Integer idCriterio) {
+        return evaluacionCalidadRepo.existsByPesajeAndCriterioActivo(idPesaje, idCriterio);
+    }
+
+
 }

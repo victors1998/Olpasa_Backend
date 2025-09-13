@@ -13,4 +13,6 @@ public interface IEvaluacionCalidadService extends ICRUD<EvaluacionCalidad, Inte
 
     public EvaluacionCalidad eliminarEvaluacionCalidad(Integer id_evaluacion);
 
+    boolean existsByPesajeAndCriterioActivo(Integer idPesaje, Integer idCriterio);
+
 }

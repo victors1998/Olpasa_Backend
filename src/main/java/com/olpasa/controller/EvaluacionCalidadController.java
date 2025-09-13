@@ -73,4 +73,9 @@ public class EvaluacionCalidadController {
         return ResponseEntity.ok("Evaluación anulada correctamente");
     }
 
+    @GetMapping("/existe/{idPesaje}/{idCriterio}")
+    public ResponseEntity<Boolean> existsByPesajeAndCriterioActivo(@PathVariable Integer idPesaje, @PathVariable Integer idCriterio) {
+        return ResponseEntity.ok(evaluacionCalidadService.existsByPesajeAndCriterioActivo(idPesaje, idCriterio));
+    }
+
 }

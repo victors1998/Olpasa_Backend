@@ -36,4 +36,10 @@ public class PesoController {
         //List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("/buscar/{codigo}/{anio}/{mes}")
+    public ResponseEntity<List<PesoDestare>> buscarCodigoAnioMes(@PathVariable Integer codigo, @PathVariable Integer anio, @PathVariable Integer mes) {
+        List<PesoDestare> lis = mapperUtil.mapList(pesajeService.searchProveedorAnioMes(codigo, anio, mes), PesoDestare.class);
+        return ResponseEntity.ok(lis);
+    }
 }

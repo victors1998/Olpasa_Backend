@@ -1,9 +1,6 @@
 package com.olpasa.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
+import java.time.LocalDate;
 
 
 public interface PesoDestare {
@@ -13,6 +10,8 @@ public interface PesoDestare {
      String getPlaca();
      String getNumTicket();
      String getProveedor();
+     String getFecha();
+     Integer getPesoNeto();
 
 
 /*

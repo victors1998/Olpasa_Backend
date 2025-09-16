@@ -31,4 +31,9 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
         return pesajeRepo.findPesajeById_pesaje(id_pesaje);
     }
 
+    @Override
+    public List<PesoDestare> searchProveedorAnioMes(Integer codigo, Integer anio, Integer mes) {
+        return pesajeRepo.searchProveedorAnioMes(codigo, anio, mes);
+    }
+
 }

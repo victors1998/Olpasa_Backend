@@ -14,4 +14,6 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
     PesoDestare getPesajeById_pesaje(Integer id_pesaje);
 
+    List<PesoDestare> searchProveedorAnioMes(Integer codigo, Integer anio, Integer mes);
+
 }

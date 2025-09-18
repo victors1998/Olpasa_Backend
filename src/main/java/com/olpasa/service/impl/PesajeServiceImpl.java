@@ -8,6 +8,7 @@ import com.olpasa.service.IPesajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -34,6 +35,11 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     @Override
     public List<PesoDestare> searchProveedorAnioMes(Integer codigo, Integer anio, Integer mes) {
         return pesajeRepo.searchProveedorAnioMes(codigo, anio, mes);
+    }
+
+    @Override
+    public List<PesoDestare> searchByDate(LocalDateTime date) {
+        return pesajeRepo.searchByFecha(date);
     }
 
 }

@@ -11,7 +11,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -42,7 +44,7 @@ public class PesoController {
         return ResponseEntity.ok(lis);
     }
 
-    @GetMapping("/search/{date}")
+    @GetMapping("/search/date")
     public ResponseEntity<List<PesoDestare>> buscarByFecha(@RequestParam(value = "date", defaultValue = "2024-08-01") String date) {
         LocalDateTime fecha = LocalDateTime.parse(date);
         List<PesoDestare> lis = mapperUtil.mapList(pesajeService.searchByDate(fecha), PesoDestare.class);

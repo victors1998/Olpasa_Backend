@@ -46,7 +46,7 @@ public class PesoController {
 
     @GetMapping("/search/date")
     public ResponseEntity<List<PesoDestare>> buscarByFecha(@RequestParam(value = "date", defaultValue = "2024-08-01") String date) {
-        LocalDateTime fecha = LocalDateTime.parse(date);
+        LocalDateTime fecha = LocalDateTime.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         List<PesoDestare> lis = mapperUtil.mapList(pesajeService.searchByDate(fecha), PesoDestare.class);
         return ResponseEntity.ok(lis);
     }

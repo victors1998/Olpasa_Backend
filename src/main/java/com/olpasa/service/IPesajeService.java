@@ -5,6 +5,7 @@ import com.olpasa.model.ControlRff;
 import com.olpasa.model.Pesaje;
 import com.olpasa.model.Sector;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
     List<PesoDestare> searchProveedorAnioMes(Integer codigo, Integer anio, Integer mes);
 
-    List<PesoDestare> searchByDate(LocalDateTime date);
+    List<PesoDestare> searchByDate(LocalDate date);
 
 }

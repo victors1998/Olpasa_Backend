@@ -7,6 +7,7 @@ import com.olpasa.model.Sector;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -70,6 +71,6 @@ public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
             "            INNER JOIN vehiculo AS ve ON pe.id_vehiculo = ve.id_vehiculo\n" +
             "            LEFT JOIN persona AS per2 ON per2.codigo = pe.codigo_et\n" +
             "            WHERE pe.fecha= :date ", nativeQuery = true)
-    List<PesoDestare> searchByFecha(@Param("date") LocalDateTime date);
+    List<PesoDestare> searchByFecha(@Param("date") LocalDate date);
 
 }

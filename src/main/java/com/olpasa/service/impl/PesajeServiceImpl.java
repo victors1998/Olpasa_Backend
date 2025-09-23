@@ -8,6 +8,7 @@ import com.olpasa.service.IPesajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     }
 
     @Override
-    public List<PesoDestare> searchByDate(LocalDateTime date) {
+    public List<PesoDestare> searchByDate(LocalDate date) {
         return pesajeRepo.searchByFecha(date);
     }
 

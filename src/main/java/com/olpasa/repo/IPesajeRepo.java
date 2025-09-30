@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
 
-    @Query(value = "SELECT pe.id_pesaje, pe.num_ticket,concat( per.paterno,' ', per.materno,'', per.nombres) as proveedor,\n" +
+    @Query(value = "SELECT pe.id_pesaje, pe.num_ticket,concat( per.paterno,' ', per.materno,' ', per.nombres) as proveedor,\n" +
             "ve.placa, concat( per2.paterno,' ', per2.materno,' ', per2.nombres) as transportista, pe.bitacora, pe.castigo_importe,\n" +
             "pe.castigo_peso, pe.castigo_planilla, pe.cod_producto, pe.codigo, pe.codigo_et, pe.conductor,\n" +
             "pe.estado, pe.estado_sinc, pe.fecha, pe.fecha_anul, pe.fecha_salida, pe.id_liquidacion,\n" +

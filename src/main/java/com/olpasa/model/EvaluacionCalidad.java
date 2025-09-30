@@ -57,6 +57,4 @@ public class EvaluacionCalidad {
     @Column(name = "fecha_mod")
     private LocalDate fecha_mod;
 
-    @Column(name = "tam_rac")
-    private String tam_rac;
 }

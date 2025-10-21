@@ -50,4 +50,11 @@ public class PesoController {
         List<PesoDestare> lis = mapperUtil.mapList(pesajeService.searchByDate(fecha), PesoDestare.class);
         return ResponseEntity.ok(lis);
     }
+
+    @GetMapping("/search/ticket/{num_ticket}")
+    public ResponseEntity<PesoDestare> findById_num_ticket(@PathVariable("num_ticket") String num_ticket) {
+        PesoDestare list = pesajeService.getPesajeById_num_ticket(num_ticket);
+        //List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
+        return ResponseEntity.ok(list);
+    }
 }

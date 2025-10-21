@@ -43,4 +43,9 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
         return pesajeRepo.searchByFecha(date);
     }
 
+    @Override
+    public PesoDestare getPesajeById_num_ticket(String num_ticket) {
+        return pesajeRepo.findPesajeById_NumTicket(num_ticket);
+    }
+
 }

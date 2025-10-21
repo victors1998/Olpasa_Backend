@@ -20,4 +20,6 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
     List<PesoDestare> searchByDate(LocalDate date);
 
+    PesoDestare getPesajeById_num_ticket(String num_ticket);
+
 }

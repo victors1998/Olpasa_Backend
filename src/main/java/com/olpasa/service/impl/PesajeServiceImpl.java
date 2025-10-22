@@ -44,7 +44,7 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     }
 
     @Override
-    public PesoDestare getPesajeById_num_ticket(String num_ticket) {
+    public List<PesoDestare> getPesajeById_num_ticket(String num_ticket) {
         return pesajeRepo.findPesajeById_NumTicket(num_ticket);
     }
 

@@ -1,4 +1,15 @@
 package com.olpasa.dto;
 
-public class GuiaRemisionDTO {
+public interface GuiaRemisionDTO {
+
+    int getIdGuia();
+    String getFechaEmision();
+    String getSerie();
+    String getNumero();
+    String getProveedor();
+    String getNumeroDocumento();
+    String getPesoBruto();
+    String UnidadeMedida();
+    String getDescripcion();
+
 }

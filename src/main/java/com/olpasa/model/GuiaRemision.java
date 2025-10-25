@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -114,5 +115,8 @@ public class GuiaRemision {
 
     @Column(name = "facturado")
     private String facturado;
+
+    @OneToMany(mappedBy = "id_guia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleGuia> detalleGuias;
 
 }

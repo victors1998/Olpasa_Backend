@@ -7,12 +7,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "guia_remision")
+@Table(name = "detalle_guia")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class DetalleGuia {
 
@@ -34,7 +35,7 @@ public class DetalleGuia {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "id_pesaje", foreignKey = @ForeignKey(name = "pesaje_detalle_guia_fk"))
+    @JoinColumn(name = "id_pesaje", nullable = false, foreignKey = @ForeignKey(name = "pesaje_detalle_guia_fk"))
     private Pesaje id_pesaje;
 
     @Column(name = "cantidad", precision = 18, scale = 3, nullable = false)

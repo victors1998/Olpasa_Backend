@@ -9,7 +9,7 @@ public interface GuiaRemisionDTO {
     String getProveedor();
     String getNumeroDocumento();
     String getPesoBruto();
-    String UnidadeMedida();
+    String getUnidadMedida();
     String getDescripcion();
 
 }

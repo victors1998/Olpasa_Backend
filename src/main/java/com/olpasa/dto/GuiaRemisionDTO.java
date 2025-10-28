@@ -11,5 +11,6 @@ public interface GuiaRemisionDTO {
     String getPesoBruto();
     String getUnidadMedida();
     String getDescripcion();
+    String getFacturado();
 
 }

@@ -20,14 +20,21 @@ public interface IGuiaRemisionRepo extends IGenericoRepo<GuiaRemision, Integer> 
             "WHERE gr.facturado='NO' AND gr.estado='EMITIDO'", nativeQuery = true)
     List<GuiaRemisionDTO> findGuiaRemisionFacturado();
 
-    @Query(value = "SELECT gr.id_guia, gr.fecha_emision, gr.serie, gr.numero,\n" +
-            "CONCAT(per.paterno, ' ', per.materno, ' ', per.nombres) AS proveedor,\n" +
-            "per.numero_documento, gr.peso_bruto, dg.unidad_medida, dg.descripcion, gr.facturado\n" +
-            "FROM guia_remision AS gr\n" +
-            "INNER JOIN persona AS per ON gr.codigo_destinatario = per.codigo\n" +
-            "INNER JOIN detalle_guia AS dg ON gr.id_guia = dg.id_guia\n" +
-            "WHERE gr.facturado= :facturado AND gr.serie LIKE '% :serie%' AND gr.numero LIKE '% :numero'", nativeQuery = true)
-    List<GuiaRemisionDTO> findByGuiaRemisionSerieNumero(@Param("facturado") String facturado, @Param("serie") String serie, @Param("numero") Integer numero);
+    @Query(value = "SELECT gr.id_guia, gr.fecha_emision, gr.serie, gr.numero, " +
+            "CONCAT(per.paterno, ' ', per.materno, ' ', per.nombres) AS proveedor, " +
+            "per.numero_documento, gr.peso_bruto, dg.unidad_medida, dg.descripcion, gr.facturado " +
+            "FROM guia_remision AS gr " +
+            "INNER JOIN persona AS per ON gr.codigo_destinatario = per.codigo " +
+            "INNER JOIN detalle_guia AS dg ON gr.id_guia = dg.id_guia " +
+            "WHERE gr.facturado = :facturado " +
+            "AND gr.serie LIKE CONCAT('%', :serie, '%') " +
+            "AND CAST(gr.numero AS VARCHAR) LIKE CONCAT('%', :numero)",
+            nativeQuery = true)
+    List<GuiaRemisionDTO> findByGuiaRemisionSerieNumero(
+            @Param("facturado") String facturado,
+            @Param("serie") String serie,
+            @Param("numero") Integer numero);
+
 
 
 }

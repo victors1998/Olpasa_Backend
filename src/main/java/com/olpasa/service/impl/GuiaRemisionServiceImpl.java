@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public abstract class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> implements IGuiaRemisionService {
+public class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> implements IGuiaRemisionService {
 
     private final IGuiaRemisionRepo guiaRemisionRepo;
 

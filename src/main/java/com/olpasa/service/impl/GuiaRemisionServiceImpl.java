@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> implements IGuiaRemisionService {
+public abstract class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> implements IGuiaRemisionService {
 
     private final IGuiaRemisionRepo guiaRemisionRepo;
 
@@ -27,5 +27,10 @@ public class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> imp
     @Override
     public List<GuiaRemisionDTO> findGuiaRemisionFacturado() {
         return guiaRemisionRepo.findGuiaRemisionFacturado();
+    }
+
+    @Override
+    public List<GuiaRemisionDTO> findGuiaRemisionSerieNumero(String facturado, String serie, Integer numero) {
+        return guiaRemisionRepo.findByGuiaRemisionSerieNumero(facturado, serie, numero);
     }
 }

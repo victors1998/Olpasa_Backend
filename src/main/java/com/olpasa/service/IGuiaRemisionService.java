@@ -9,4 +9,6 @@ import java.util.List;
 public interface IGuiaRemisionService extends ICRUD<GuiaRemision, Integer>{
 
     List<GuiaRemisionDTO> findGuiaRemisionFacturado();
+
+    List<GuiaRemisionDTO> findGuiaRemisionSerieNumero(String facturado, String serie, Integer numero);
 }

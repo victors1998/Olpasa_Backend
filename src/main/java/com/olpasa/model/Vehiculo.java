@@ -22,7 +22,6 @@ public class Vehiculo {
     @Column(name = "id_vehiculo")
     private Integer id_vehiculo;
 
-
     @ManyToOne
     @JoinColumn(name = "codigo_et", nullable = false, foreignKey = @ForeignKey(name = "empresa_transporte_vehiculo_fk"))
     private EmpresaTransporte codigo_et;
@@ -50,4 +49,10 @@ public class Vehiculo {
 
     @Column(name = "constancia")
     private String constancia;
+
+    @Column(name = "configuracion_vehicular")
+    private String configuracion_vehicular;
+
+    @Column(name = "peso_max_permitido")
+    private Integer peso_max_permitido;
 }

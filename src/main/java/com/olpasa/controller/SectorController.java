@@ -62,12 +62,5 @@ public class SectorController {
         return ResponseEntity.noContent().build();
     }
 
-   /* private SectorDto convertToDto(Sector obj) {
-        return modelMapper.map(obj, SectorDto.class);
-    }
-
-    private Sector convertToEntity(SectorDto dto) {
-        return modelMapper.map(dto, Sector.class);
-    }*/
 
 }

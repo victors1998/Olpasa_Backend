@@ -1,6 +1,5 @@
 package com.olpasa.controller;
 
-import com.olpasa.dto.SectorDto;
 import com.olpasa.dto.VehiculoDTO;
 import com.olpasa.service.IVehiculoService;
 import com.olpasa.util.MapperUtil;
@@ -20,9 +19,9 @@ public class VehiculoController {
     private final IVehiculoService vehiculoService;
     private final MapperUtil mapperUtil;
 
-    @GetMapping
-    public ResponseEntity<List<VehiculoDTO>> findAll() {
-        List<VehiculoDTO> list = mapperUtil.mapList(vehiculoService.findAll(), VehiculoDTO.class);
+    @GetMapping("/buscar")
+    public ResponseEntity<List<VehiculoDTO>> findVehiculos() {
+        List<VehiculoDTO> list = mapperUtil.mapList(vehiculoService.findVehiculos(), VehiculoDTO.class);
         return ResponseEntity.ok(list);
     }
 }

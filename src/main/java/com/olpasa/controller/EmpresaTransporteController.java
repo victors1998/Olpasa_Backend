@@ -1,5 +1,6 @@
 package com.olpasa.controller;
 
+import com.olpasa.dto.EmpresaDTO;
 import com.olpasa.dto.EmpresaTransporteDto;
 import com.olpasa.model.EmpresaTransporte;
 import com.olpasa.service.IEmpresaTransporteService;
@@ -28,6 +29,12 @@ public class EmpresaTransporteController {
     public ResponseEntity<List<EmpresaTransporteDto>> findAll() {
         //List<EmpresaTransporteDto> list = empresaTransporteService.findAll().stream().map(this::convertToDto).toList();
         List<EmpresaTransporteDto> list = mapperUtil.mapList(empresaTransporteService.findAll(), EmpresaTransporteDto.class);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<EmpresaDTO>> buscarEmpresa() {
+        List<EmpresaDTO> list = mapperUtil.mapList(empresaTransporteService.findEmpresaTransporte(), EmpresaDTO.class);
         return ResponseEntity.ok(list);
     }
 

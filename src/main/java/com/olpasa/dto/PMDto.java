@@ -11,6 +11,7 @@ public interface PMDto {
     String getNumero();
     String getProveedor();
     String getTransportista();
+    String getPesoSalida();
     // PLACA PRINCIPAL
     int getIdVehiculoPrincipal();
     String getPlacaPrincipal();

@@ -14,7 +14,7 @@ public interface IPesoMedidaRepo extends IGenericoRepo<PesoMedida, Integer> {
     @Query(value = "SELECT \n" +
             "    pm.id_peso_medida,\n" +
             "    pm.fecha,\n" +
-            "    pe.num_ticket,\n" +
+            "    pe.num_ticket, pe.peso_salida,\n" +
             "    gr.serie,\n" +
             "    gr.numero,\n" +
             "    \n" +

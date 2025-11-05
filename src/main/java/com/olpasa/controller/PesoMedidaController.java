@@ -34,7 +34,7 @@ public class PesoMedidaController {
     }
 
     @PostMapping
-    public ResponseEntity<PMDto> save(@Valid @RequestBody PMDto dto) {
+    public ResponseEntity<PesoMedidaDTO> save(@Valid @RequestBody PesoMedidaDTO dto) {
         PesoMedida obj = pesoMedidaService.save(mapperUtil.map(dto, PesoMedida.class));
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(obj.getId_peso_medida()).toUri();
         return ResponseEntity.created(location).build();

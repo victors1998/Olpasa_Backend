@@ -22,7 +22,7 @@ public class PesoMedida {
     @Column(name = "id_peso_medida")
     private Integer id_peso_medida;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
     @ManyToOne
@@ -33,9 +33,9 @@ public class PesoMedida {
     @JoinColumn(name = "id_guia", nullable = true, foreignKey = @ForeignKey(name = "peso_medida_guia_remision_fk"))
     private GuiaRemision id_guia;
 
-    @Column(name = "estado")
+    @Column(name = "estado", nullable = false)
     private String estado;
 
-    @Column(name = "usuario")
+    @Column(name = "usuario", nullable = false)
     private String usuario;
 }

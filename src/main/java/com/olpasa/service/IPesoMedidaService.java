@@ -11,4 +11,8 @@ import java.util.List;
 public interface IPesoMedidaService extends ICRUD<PesoMedida, Integer> {
 
     List<PMDto> searchByDate(LocalDate date);
+
+    PMDto searchByIdPesoMedida(Integer id_peso_medida);
+
+    byte[] generateReport( Integer id_peso_medida) throws Exception;
 }

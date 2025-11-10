@@ -8,6 +8,7 @@ import com.olpasa.service.IPesoMedidaService;
 import com.olpasa.util.MapperUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -50,6 +51,16 @@ public class PesoMedidaController {
         return ResponseEntity.created(location).build();
     }
 
+    @GetMapping("/buscar/{id_peso_medida}")
+    public ResponseEntity<PMDto> buscarByIdPesoMedida(@PathVariable("id_peso_medida") Integer id_peso_medida) {
+        PMDto obj = pesoMedidaService.searchByIdPesoMedida(id_peso_medida);
+        return ResponseEntity.ok(mapperUtil.map(obj, PMDto.class));
+    }
 
+    @GetMapping(value = "/generateReport/{id_peso_medida}", produces = MediaType.APPLICATION_PDF_VALUE) //APPLICATION_PDF_VALUE
+    public ResponseEntity<byte[]> generateReport(@PathVariable("id_peso_medida") Integer id_peso_medida) throws Exception{
+        byte[] data = pesoMedidaService.generateReport(id_peso_medida);
 
+        return ResponseEntity.ok(data);
+    }
 }

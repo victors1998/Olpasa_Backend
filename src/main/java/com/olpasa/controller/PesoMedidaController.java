@@ -57,7 +57,7 @@ public class PesoMedidaController {
         return ResponseEntity.ok(mapperUtil.map(obj, PMDto.class));
     }
 
-    @GetMapping(value = "/generateReport/{id_peso_medida}", produces = MediaType.APPLICATION_PDF_VALUE) //APPLICATION_PDF_VALUE
+    @GetMapping(value = "/generateReport/{id_peso_medida}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE) //APPLICATION_PDF_VALUE
     public ResponseEntity<byte[]> generateReport(@PathVariable("id_peso_medida") Integer id_peso_medida) throws Exception{
         byte[] data = pesoMedidaService.generateReport(id_peso_medida);
 

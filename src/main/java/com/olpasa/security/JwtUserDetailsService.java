@@ -1,7 +1,7 @@
 package com.olpasa.security;
 
-import com.mitocode.model.User;
-import com.mitocode.repo.IUserRepo;
+import com.olpasa.model.Usuario;
+import com.olpasa.repo.IUsuarioRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,21 +18,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private final IUserRepo repo;
+    private final IUsuarioRepo repo;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repo.findOneByUsername(username);
+        Usuario user = repo.findOneByNombreCuenta(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("Username not found: " + username);
         }
 
         List<GrantedAuthority> roles = new ArrayList<>();
-        user.getRoles().forEach(rol -> {
-            roles.add(new SimpleGrantedAuthority(rol.getName()));
+        user.getPrivilegios().forEach(rol -> {
+            roles.add(new SimpleGrantedAuthority(rol.getDescripcion()));
         });
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), roles);
+        return new org.springframework.security.core.userdetails.User(user.getNombre_cuenta(), user.getPassword(), roles);
     }
 }

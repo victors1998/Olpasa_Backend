@@ -18,7 +18,7 @@ public interface PMDto {
     BigDecimal getAltoPrincipal();
     BigDecimal getAnchoPrincipal();
     BigDecimal getLargoPrincipal();
-    String getConfiguracionVehicular();
+    String getConfiguracion();
     String getPesoPermitido();
     //PLACA SECUNDARIO
     int getIdVehiculoSecundario();

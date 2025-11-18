@@ -1,6 +1,7 @@
 package com.olpasa.repo;
 
 import com.olpasa.dto.PesoDestare;
+import com.olpasa.dto.PesoPruebaDTO;
 import com.olpasa.model.ControlRff;
 import com.olpasa.model.Pesaje;
 import com.olpasa.model.Sector;
@@ -102,5 +103,14 @@ public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
             "WHERE pe.num_ticket = :num_ticket\n" +
             "ORDER BY pe.id_pesaje;", nativeQuery = true)
     List<PesoDestare> findPesajeById_NumTicket(@Param("num_ticket") String num_ticket);
+
+    @Query(value = "SELECT tipo_operacion, SUM(peso_neto) AS peso_neto " +
+            "FROM pesaje " +
+            "WHERE CAST(fecha_salida AS DATE) = :fecha " +
+            "AND DATEPART(HOUR, fecha_salida) = :hora " +
+            "GROUP BY tipo_operacion", nativeQuery = true)
+    List<PesoPruebaDTO> findTipoOperacionByFechaHora(
+            @Param("fecha") LocalDate fecha,
+            @Param("hora") int hora);
 
 }

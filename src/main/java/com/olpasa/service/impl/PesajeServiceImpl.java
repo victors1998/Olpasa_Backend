@@ -1,6 +1,7 @@
 package com.olpasa.service.impl;
 
 import com.olpasa.dto.PesoDestare;
+import com.olpasa.dto.PesoPruebaDTO;
 import com.olpasa.model.Pesaje;
 import com.olpasa.repo.IGenericoRepo;
 import com.olpasa.repo.IPesajeRepo;
@@ -46,6 +47,11 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     @Override
     public List<PesoDestare> getPesajeById_num_ticket(String num_ticket) {
         return pesajeRepo.findPesajeById_NumTicket(num_ticket);
+    }
+
+    @Override
+    public List<PesoPruebaDTO> searchByFechaHora(LocalDate fecha, int hora) {
+        return pesajeRepo.findTipoOperacionByFechaHora(fecha, hora);
     }
 
 }

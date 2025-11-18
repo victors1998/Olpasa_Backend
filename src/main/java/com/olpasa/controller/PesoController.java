@@ -3,6 +3,7 @@ package com.olpasa.controller;
 import com.olpasa.dto.PesajeDto;
 import com.olpasa.dto.PesoDestare;
 import com.olpasa.dto.PesoDto;
+import com.olpasa.dto.PesoPruebaDTO;
 import com.olpasa.model.Pesaje;
 import com.olpasa.service.IPesajeService;
 import com.olpasa.util.MapperUtil;
@@ -57,4 +58,18 @@ public class PesoController {
         //List<PesajeDto> listDto = mapperUtil.mapList(list, PesajeDto.class);
         return ResponseEntity.ok(list);
     }
+
+    @GetMapping("/prueba/date-time")
+    public ResponseEntity<List<PesoPruebaDTO>> buscarByFechaHora(
+            @RequestParam(value = "date") String date,
+            @RequestParam(value = "hour") int hour) {
+
+        LocalDate fecha = LocalDate.parse(date);
+        List<PesoPruebaDTO> lis = mapperUtil.mapList(
+                pesajeService.searchByFechaHora(fecha, hour),
+                PesoPruebaDTO.class
+        );
+        return ResponseEntity.ok(lis);
+    }
+
 }

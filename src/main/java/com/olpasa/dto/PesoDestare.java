@@ -18,6 +18,7 @@ public interface PesoDestare {
      Integer getPesoNeto();
      String getLicencia();
      String getObservaciones();
+     String getTipoOperacion();
 
 
 }

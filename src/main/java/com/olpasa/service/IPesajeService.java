@@ -1,6 +1,7 @@
 package com.olpasa.service;
 
 import com.olpasa.dto.PesoDestare;
+import com.olpasa.dto.PesoPruebaDTO;
 import com.olpasa.model.ControlRff;
 import com.olpasa.model.Pesaje;
 import com.olpasa.model.Sector;
@@ -21,5 +22,7 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
     List<PesoDestare> searchByDate(LocalDate date);
 
     List<PesoDestare> getPesajeById_num_ticket(String num_ticket);
+
+    List<PesoPruebaDTO> searchByFechaHora(LocalDate fecha, int hora);
 
 }

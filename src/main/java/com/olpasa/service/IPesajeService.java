@@ -23,6 +23,6 @@ public interface IPesajeService extends ICRUD<Pesaje, Integer>{
 
     List<PesoDestare> getPesajeById_num_ticket(String num_ticket);
 
-    List<PesoPruebaDTO> searchByFechaHora(LocalDate fecha, int hora);
+    List<PesoPruebaDTO> searchByFechaHora(LocalDateTime fecha);
 
 }

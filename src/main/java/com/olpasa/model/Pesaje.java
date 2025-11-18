@@ -113,7 +113,7 @@ public class Pesaje {
     private String usuario_version;
 
 
-    @Column(name = "fecha_salida", columnDefinition = "DATETIME2")
+    @Column(name = "fecha_salida")
     private LocalDateTime fecha_salida;
 
     @Column(name = "fecha_anul")

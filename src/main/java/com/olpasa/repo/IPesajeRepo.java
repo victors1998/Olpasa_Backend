@@ -104,13 +104,13 @@ public interface IPesajeRepo extends IGenericoRepo<Pesaje, Integer> {
             "ORDER BY pe.id_pesaje;", nativeQuery = true)
     List<PesoDestare> findPesajeById_NumTicket(@Param("num_ticket") String num_ticket);
 
-    @Query(value = "SELECT tipo_operacion, SUM(peso_neto) AS peso_neto " +
-            "FROM pesaje " +
-            "WHERE CAST(fecha_salida AS DATE) = :fecha " +
-            "AND DATEPART(HOUR, fecha_salida) = :hora " +
-            "GROUP BY tipo_operacion", nativeQuery = true)
-    List<PesoPruebaDTO> findTipoOperacionByFechaHora(
-            @Param("fecha") LocalDate fecha,
-            @Param("hora") int hora);
+    @Query(value = "SELECT pe.tipo_operacion, SUM(pe.peso_neto) AS peso_neto, p.descripcion " +
+            "FROM pesaje as pe inner join producto as p on pe.cod_producto=p.cod_producto " +
+            "WHERE pe.fecha_salida BETWEEN :inicio AND :fin " +
+            "GROUP BY pe.tipo_operacion, p.descripcion",
+            nativeQuery = true)
+    List<PesoPruebaDTO> resumenHastaHora(@Param("inicio") LocalDateTime inicio, @Param("fin") LocalDateTime fin);
+
+
 
 }

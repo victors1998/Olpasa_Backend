@@ -59,17 +59,16 @@ public class PesoController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/prueba/date-time")
-    public ResponseEntity<List<PesoPruebaDTO>> buscarByFechaHora(
-            @RequestParam(value = "date") String date,
-            @RequestParam(value = "hour") int hour) {
+    @GetMapping("/prueba/date")
+    public ResponseEntity<List<PesoPruebaDTO>> buscarPorFechaHora(
+            @RequestParam("date") String date) {
 
-        LocalDate fecha = LocalDate.parse(date);
-        List<PesoPruebaDTO> lis = mapperUtil.mapList(
-                pesajeService.searchByFechaHora(fecha, hour),
-                PesoPruebaDTO.class
-        );
-        return ResponseEntity.ok(lis);
+        LocalDateTime fechaHora = LocalDateTime.parse(date);
+
+        List<PesoPruebaDTO> lista =
+                pesajeService.searchByFechaHora(fechaHora);
+
+        return ResponseEntity.ok(lista);
     }
 
 }

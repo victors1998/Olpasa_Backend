@@ -50,8 +50,10 @@ public class PesajeServiceImpl extends CRUDImpl<Pesaje, Integer> implements IPes
     }
 
     @Override
-    public List<PesoPruebaDTO> searchByFechaHora(LocalDate fecha, int hora) {
-        return pesajeRepo.findTipoOperacionByFechaHora(fecha, hora);
-    }
+    public List<PesoPruebaDTO> searchByFechaHora(LocalDateTime fechaHora) {
+        LocalDateTime inicio = fechaHora.toLocalDate().atStartOfDay(); // 00:00:00
+        LocalDateTime fin = fechaHora; // hasta la hora enviada
 
+        return pesajeRepo.resumenHastaHora(inicio, fin);
+    }
 }

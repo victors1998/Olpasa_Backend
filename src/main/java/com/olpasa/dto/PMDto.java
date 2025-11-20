@@ -1,6 +1,7 @@
 package com.olpasa.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public interface PMDto {
 
@@ -21,7 +22,7 @@ public interface PMDto {
     String getConfiguracion();
     String getPesoPermitido();
     //PLACA SECUNDARIO
-    int getIdVehiculoSecundario();
+    Long getIdVehiculoSecundario();
     String getPlacaSecundario();
     BigDecimal getAltoSecundario();
     BigDecimal getAnchoSecundario();

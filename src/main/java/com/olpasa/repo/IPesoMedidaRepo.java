@@ -3,6 +3,7 @@ package com.olpasa.repo;
 import com.olpasa.dto.PMDto;
 import com.olpasa.dto.PesoDestare;
 import com.olpasa.model.PesoMedida;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -100,4 +101,9 @@ public interface IPesoMedidaRepo extends IGenericoRepo<PesoMedida, Integer> {
             "    ON pe.codigo_et = per2.codigo\n" +
             "WHERE pm.id_peso_medida= :id_peso_medida", nativeQuery = true)
     PMDto searchById_peso_medida(@Param("id_peso_medida") Integer id_peso_medida);
+
+    @Modifying
+    @Query("UPDATE PesoMedida p SET p.estado = 'ANULADO' WHERE p.id_peso_medida = :idPesoMedida")
+    int anularById(@Param("idPesoMedida") Integer idPesoMedida);
+
 }

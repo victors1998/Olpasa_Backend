@@ -53,6 +53,6 @@ public class Vehiculo {
     @Column(name = "configuracion_vehicular")
     private String configuracion_vehicular;
 
-    @Column(name = "peso_max_permitido")
-    private Integer peso_max_permitido;
+    @Column(columnDefinition = "DECIMAL(18,3)",name = "peso_max_permitido")
+    private BigDecimal peso_max_permitido;
 }

@@ -1,5 +1,7 @@
 package com.olpasa.dto;
 
+import java.math.BigDecimal;
+
 public interface VehiculoDTO {
 
     int getIdVehiculo();
@@ -13,7 +15,7 @@ public interface VehiculoDTO {
     String getLargo();
     String getConstancia();
     String getConfiguracion();
-    String getPermitido();
+    BigDecimal getPermitido();
     int getCodigoEt();
 
 }

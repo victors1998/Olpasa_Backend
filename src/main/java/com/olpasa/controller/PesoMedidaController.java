@@ -8,6 +8,7 @@ import com.olpasa.service.IPesoMedidaService;
 import com.olpasa.util.MapperUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -62,5 +63,18 @@ public class PesoMedidaController {
         byte[] data = pesoMedidaService.generateReport(id_peso_medida);
 
         return ResponseEntity.ok(data);
+    }
+
+    // Endpoint para anular un registro por ID
+    @PutMapping("/{id}/anular")
+    public ResponseEntity<String> anular(@PathVariable("id") Integer idPesoMedida) {
+        int filas = pesoMedidaService.anularById(idPesoMedida);
+
+        if (filas > 0) {
+            return ResponseEntity.ok("Registro con ID " + idPesoMedida + " anulado correctamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No se encontró el registro con ID " + idPesoMedida);
+        }
     }
 }

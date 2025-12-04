@@ -5,6 +5,7 @@ import com.olpasa.model.PesoMedida;
 import com.olpasa.repo.IGenericoRepo;
 import com.olpasa.repo.IPesoMedidaRepo;
 import com.olpasa.service.IPesoMedidaService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -64,6 +65,12 @@ public class PesoMedidaServiceImpl extends CRUDImpl<PesoMedida, Integer> impleme
         data = JasperExportManager.exportReportToPdf(print);
 
         return data;
+    }
+
+    @Override
+    @Transactional
+    public int anularById(Integer idPesoMedida) {
+        return pesoMedidaRepo.anularById(idPesoMedida);
     }
 
 }

@@ -15,4 +15,6 @@ public interface IPesoMedidaService extends ICRUD<PesoMedida, Integer> {
     PMDto searchByIdPesoMedida(Integer id_peso_medida);
 
     byte[] generateReport( Integer id_peso_medida) throws Exception;
+
+    int anularById(Integer idPesoMedida);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IEmpresaTransporteRepo extends IGenericoRepo<EmpresaTransporte, Integer>{
 
-    @Query(value = "select e.codigo_et, CONCAT(p.paterno, ' ', p.materno, ' ', p.nombres) AS empresa,\n" +
-            "  e.estado from empresa_transporte as e inner join persona AS P ON e.codigo_et=p.codigo", nativeQuery = true)
+    @Query(value = "select e.codigo_et, CONCAT(p.nombres,' ',p.paterno,' ',p.materno) AS empresa,\n" +
+            "e.estado from empresa_transporte as e inner join persona AS P ON e.codigo_et=p.codigo", nativeQuery = true)
     List<EmpresaDTO> findEmpresaTransporte();
 }

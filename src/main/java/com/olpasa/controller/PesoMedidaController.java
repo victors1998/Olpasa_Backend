@@ -8,6 +8,7 @@ import com.olpasa.service.IPesoMedidaService;
 import com.olpasa.util.MapperUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -77,4 +78,16 @@ public class PesoMedidaController {
                     .body("No se encontró el registro con ID " + idPesoMedida);
         }
     }
+
+    @GetMapping(value = "/pdf/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+        public ResponseEntity<byte[]> generarPdf(@PathVariable Integer id) throws Exception {
+        byte[] pdf = pesoMedidaService.generateReport(id);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("inline", "reporte.pdf");
+
+        return new ResponseEntity<>(pdf, headers, HttpStatus.OK);
+    }
+
 }

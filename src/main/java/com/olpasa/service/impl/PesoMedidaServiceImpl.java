@@ -15,6 +15,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
@@ -46,7 +47,8 @@ public class PesoMedidaServiceImpl extends CRUDImpl<PesoMedida, Integer> impleme
         byte[] data = null;
 
         // Cargar el archivo del reporte
-        File file = new ClassPathResource("/reports/PesoMedida.jasper").getFile();
+        //File file = new ClassPathResource("/reports/PesoMedida.jasper").getFile();
+        InputStream inputStream = new ClassPathResource("/reports/PesoMedida.jasper").getInputStream();
 
         // Obtener el DTO
         PMDto dto = searchByIdPesoMedida(id_peso_medida);
@@ -56,7 +58,7 @@ public class PesoMedidaServiceImpl extends CRUDImpl<PesoMedida, Integer> impleme
 
         // Llenar el reporte con la lista como fuente de datos
         JasperPrint print = JasperFillManager.fillReport(
-                file.getPath(),
+                inputStream,
                 new HashMap<>(), // Puedes agregar parámetros si tu reporte los necesita
                 new JRBeanCollectionDataSource(dataList)
         );

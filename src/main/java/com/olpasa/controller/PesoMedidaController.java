@@ -80,14 +80,20 @@ public class PesoMedidaController {
     }
 
     @GetMapping(value = "/pdf/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
-        public ResponseEntity<byte[]> generarPdf(@PathVariable Integer id) throws Exception {
-        byte[] pdf = pesoMedidaService.generateReport(id);
+    public ResponseEntity<byte[]> generarPdf(@PathVariable Integer id) {
+        try {
+            byte[] pdf = pesoMedidaService.generateReport(id);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("inline", "reporte.pdf");
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDispositionFormData("inline", "peso_medida_" + id + ".pdf");
 
-        return new ResponseEntity<>(pdf, headers, HttpStatus.OK);
+            return new ResponseEntity<>(pdf, headers, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
+
 
 }

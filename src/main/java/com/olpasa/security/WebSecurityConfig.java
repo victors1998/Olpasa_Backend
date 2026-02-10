@@ -30,6 +30,12 @@ public class WebSecurityConfig {
     private final UserDetailsService jwtUserDetailsService;
     private final JwtRequestFilter jwtRequestFilter;
 
+    public static final  String[] PUBLIC = new String [] {"/error", "/login", "/logout", "/register",
+            "/api/registrations","/auth/login","/welcome"};
+
+    public static final  String[] PUBLIC_STATIC = new String [] {"/static/**", "/js/**", "/css/**",
+            "/images/**", "/favicon.ico","/assets/**","/themes/**","/bootstrap/**"};
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
@@ -52,7 +58,10 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(antMatcher("/login")).permitAll()
+                        .requestMatchers(antMatcher("/pages/**")).permitAll()
                         .requestMatchers(antMatcher("/mail/**")).permitAll()
+                        .requestMatchers(PUBLIC_STATIC).permitAll()
+                        .requestMatchers(PUBLIC).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractHttpConfigurer::disable)

@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -44,30 +45,20 @@ public class PesoMedidaServiceImpl extends CRUDImpl<PesoMedida, Integer> impleme
 
     @Override
     public byte[] generateReport(Integer id_peso_medida) throws Exception {
+
         byte[] data = null;
-
-        // Cargar el archivo del reporte
-        //File file = new ClassPathResource("/reports/PesoMedida.jasper").getFile();
-        InputStream inputStream = new ClassPathResource("/reports/PesoMedida.jasper").getInputStream();
-
-        // Obtener el DTO
         PMDto dto = searchByIdPesoMedida(id_peso_medida);
 
-        // Envolver el DTO en una lista
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("TITULO", "Reporte de Peso Medida");
+
+        InputStream file = new ClassPathResource("reports/PesoMedida.jasper").getInputStream();
         List<PMDto> dataList = Collections.singletonList(dto);
-
-        // Llenar el reporte con la lista como fuente de datos
-        JasperPrint print = JasperFillManager.fillReport(
-                inputStream,
-                new HashMap<>(), // Puedes agregar parámetros si tu reporte los necesita
-                new JRBeanCollectionDataSource(dataList)
-        );
-
-        // Exportar el reporte a PDF (por ejemplo)
+        JasperPrint print = JasperFillManager.fillReport(file, parameters, new JRBeanCollectionDataSource(dataList));
         data = JasperExportManager.exportReportToPdf(print);
-
         return data;
     }
+
 
     @Override
     @Transactional

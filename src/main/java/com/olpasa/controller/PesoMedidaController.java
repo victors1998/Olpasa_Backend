@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
@@ -79,20 +80,10 @@ public class PesoMedidaController {
         }
     }
 
-    @GetMapping(value = "/pdf/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<byte[]> generarPdf(@PathVariable Integer id) {
-        try {
-            byte[] pdf = pesoMedidaService.generateReport(id);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_PDF);
-            headers.setContentDispositionFormData("inline", "peso_medida_" + id + ".pdf");
-
-            return new ResponseEntity<>(pdf, headers, HttpStatus.OK);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    @GetMapping(value = "/pdf/{id_peso_medida}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> generarPdf(@PathVariable Integer id_peso_medida) throws  Exception {
+        byte[] data = pesoMedidaService.generateReport(id_peso_medida);
+        return ResponseEntity.ok(data);
     }
 
 

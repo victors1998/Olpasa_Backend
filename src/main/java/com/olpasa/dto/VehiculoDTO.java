@@ -15,7 +15,7 @@ public interface VehiculoDTO {
     String getLargo();
     String getConstancia();
     String getConfiguracion();
-    BigDecimal getPermitido();
+    String getPermitido();
     int getCodigoEt();
 
 }

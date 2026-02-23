@@ -66,6 +66,7 @@ public class Pesaje {
     @ManyToOne
     @JoinColumn(name = "vehiculo_id_vehiculo", foreignKey = @ForeignKey(name = "fk_pesaje_vehiculo2"))
     private Vehiculo vehiculo_id_vehiculo;
+
     @ManyToOne
     @JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "fk_pesaje_empresa_transporte"))
     private EmpresaTransporte codigo_et;

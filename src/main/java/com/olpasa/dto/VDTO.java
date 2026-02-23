@@ -23,5 +23,5 @@ public class VDTO {
     private BigDecimal largo;
     private String constancia;
     private String configuracion_vehicular;
-    private Integer peso_max_permitido;
+    private BigDecimal peso_max_permitido;
 }

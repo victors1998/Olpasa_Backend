@@ -86,5 +86,9 @@ public class PesoMedidaController {
         return ResponseEntity.ok(data);
     }
 
+    @GetMapping("/existe/{id_guia}")
+    public ResponseEntity<Boolean> existsByGuia(@PathVariable Integer id_guia) {
+        return ResponseEntity.ok(pesoMedidaService.existsByGuia(id_guia));
+    }
 
 }

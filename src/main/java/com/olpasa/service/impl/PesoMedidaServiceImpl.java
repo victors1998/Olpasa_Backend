@@ -66,4 +66,9 @@ public class PesoMedidaServiceImpl extends CRUDImpl<PesoMedida, Integer> impleme
         return pesoMedidaRepo.anularById(idPesoMedida);
     }
 
+    @Override
+    public boolean existsByGuia(Integer id_guia) {
+        return pesoMedidaRepo.existsByGuia(id_guia);
+    }
+
 }

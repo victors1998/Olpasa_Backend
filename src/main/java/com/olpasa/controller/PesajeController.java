@@ -60,8 +60,6 @@ public class PesajeController {
         return ResponseEntity.ok(list);
     }
 
-
-
     @PostMapping
     public ResponseEntity<PesajeDto> save(@Valid @RequestBody PesajeDto dto) {
         //Pesaje obj = pesajeService.save(convertToEntity(dto));

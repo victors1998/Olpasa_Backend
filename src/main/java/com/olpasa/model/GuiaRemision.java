@@ -55,8 +55,8 @@ public class GuiaRemision {
     @JoinColumn(name = "codigo_destinatario", foreignKey = @ForeignKey(name = "persona_guia_remision_fk"))
     private Persona codigo_destinatario;
 
-    @Column(name = "num_doc_dstinatario")
-    private String num_doc_dstinatario;
+    @Column(name = "num_doc_destinatario")
+    private String num_doc_destinatario;
 
     @Column(name = "version")
     private Integer version;
@@ -64,8 +64,8 @@ public class GuiaRemision {
     @Column(name = "usuario")
     private String usuario;
 
-    @Column(name = "presintos")
-    private String presintos;
+    @Column(name = "precintos")
+    private String precintos;
 
     @ManyToOne
     @JoinColumn(name = "codigo_et", foreignKey = @ForeignKey(name = "FK_guia_remision_empresa_transporte"))

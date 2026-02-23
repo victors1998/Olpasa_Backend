@@ -1,5 +1,6 @@
 package com.olpasa.service.impl;
 
+import com.olpasa.dto.GuiaDTO;
 import com.olpasa.dto.GuiaRemisionDTO;
 import com.olpasa.dto.PesoDestare;
 import com.olpasa.model.GuiaRemision;
@@ -11,6 +12,7 @@ import com.olpasa.service.IPesajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -30,7 +32,12 @@ public class GuiaRemisionServiceImpl extends CRUDImpl<GuiaRemision, Integer> imp
     }
 
     @Override
-    public List<GuiaRemisionDTO> findGuiaRemisionSerieNumero(String facturado, String serie, Integer numero) {
+    public List<GuiaDTO> findGuiaRemisionSerieNumero(String facturado, String serie, Integer numero) {
         return guiaRemisionRepo.findByGuiaRemisionSerieNumero(facturado, serie, numero);
+    }
+
+    @Override
+    public List<GuiaDTO> searchByDate(LocalDate date) {
+        return guiaRemisionRepo.searchByFecha(date);
     }
 }

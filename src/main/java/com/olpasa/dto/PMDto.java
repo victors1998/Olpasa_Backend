@@ -7,27 +7,30 @@ public interface PMDto {
 
     int getIdPesoMedida();
     String getFecha();
-    String getNumTicket();
     String getSerie();
     String getNumero();
-    String getProveedor();
-    String getTransportista();
-    String getPesoSalida();
+    String getCliente();
+    String getEmpresaTransporte();
+    String getNumRegistro();
     String getEstado();
-    BigDecimal getPesoMedida();
-    // PLACA PRINCIPAL
-    int getIdVehiculoPrincipal();
+
+    // DATOS DE PLACA PRINCIPAL
     String getPlacaPrincipal();
-    BigDecimal getAltoPrincipal();
-    BigDecimal getAnchoPrincipal();
     BigDecimal getLargoPrincipal();
-    String getConfiguracion();
-    String getPesoPermitido();
-    //PLACA SECUNDARIO
-    Long getIdVehiculoSecundario();
+    BigDecimal getAnchoPrincipal();
+    BigDecimal getAltoPrincipal();
+    String getConfiguracionVehicular();
+
+    // DATOS DE PLACA SECUNDARIO
     String getPlacaSecundario();
-    BigDecimal getAltoSecundario();
-    BigDecimal getAnchoSecundario();
     BigDecimal getLargoSecundario();
+    BigDecimal getAnchoSecundario();
+    BigDecimal getAltoSecundario();
+
+    String getPesoMaxPerm();
+    String getPesoBrutoTransp();
+
+
+
 
 }

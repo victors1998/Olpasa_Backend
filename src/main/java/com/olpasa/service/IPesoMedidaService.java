@@ -17,4 +17,6 @@ public interface IPesoMedidaService extends ICRUD<PesoMedida, Integer> {
     byte[] generateReport( Integer id_peso_medida) throws Exception;
 
     int anularById(Integer idPesoMedida);
+
+    boolean existsByGuia(Integer id_guia);
 }

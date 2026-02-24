@@ -22,11 +22,11 @@ public interface IGuiaRemisionRepo extends IGenericoRepo<GuiaRemision, Integer> 
             "WHERE gr.facturado='NO' AND gr.estado='EMITIDO'", nativeQuery = true)
     List<GuiaRemisionDTO> findGuiaRemisionFacturado();
 
-    @Query(value = "SELECT g.id_guia, g.fecha_emision, g.serie, g.numero, g.num_doc_destinatario, \n" +
+    @Query(value = "SELECT g.id_guia, g.fecha_emision, g.serie, g.numero, g.num_doc_destinatario,\n" +
             "dg.descripcion, dg.unidad_medida, CONCAT(p.nombres,' ',p.paterno,' ', p.materno) AS transportista,\n" +
             "CONCAT(cond.paterno, ' ', cond.materno, ' ', cond.nombres) AS conductores, peso.id_pesaje, peso.num_ticket,\n" +
-            "peso.peso_ingreso, peso.peso_salida, peso.peso_neto, CONCAT(p3.nombres,' ',p3.paterno,' ',p3.materno) AS cliente, \n" +
-            "v1.id_vehiculo as idPrincipal, v1.placa AS placaPrincipal, v2.id_vehiculo as idSecundario, v2.placa AS placaSecundario\n" +
+            "peso.peso_ingreso, peso.peso_salida, peso.peso_neto, CONCAT(p3.nombres,' ',p3.paterno,' ',p3.materno) AS cliente,\n" +
+            "v1.id_vehiculo as idVehiculoPrincipal, v1.placa AS placaPrincipal, v1.peso_max_permitido, v2.id_vehiculo as idVehiculoSecundario, v2.placa AS placaSecundario\n" +
             "FROM guia_remision AS g\n" +
             "INNER JOIN detalle_guia AS dg ON g.id_guia = dg.id_guia\n" +
             "INNER JOIN persona AS p ON g.codigo_et = p.codigo\n" +
@@ -34,7 +34,7 @@ public interface IGuiaRemisionRepo extends IGenericoRepo<GuiaRemision, Integer> 
             "INNER JOIN persona AS p3 ON p3.codigo = g.codigo_destinatario\n" +
             "LEFT JOIN vehiculo AS v1 ON peso.id_vehiculo = v1.id_vehiculo\n" +
             "LEFT JOIN vehiculo AS v2 ON peso.vehiculo_id_vehiculo = v2.id_vehiculo\n" +
-            "INNER JOIN conductor AS cond ON cond.codigo = g.codigo_cond\n" +
+            "INNER JOIN conductor AS cond ON cond.codigo = g.codigo_cond " +
             "WHERE g.facturado = :facturado\n" +
             "AND g.serie LIKE CONCAT('%', :serie, '%')\n" +
             "AND CAST(g.numero AS VARCHAR) LIKE CONCAT('%', :numero)\n" +

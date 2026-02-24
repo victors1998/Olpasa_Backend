@@ -24,6 +24,13 @@ public class VehiculoController {
     private final IVehiculoService vehiculoService;
     private final MapperUtil mapperUtil;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<VDTO> findById(@PathVariable("id") Integer id) {
+        Vehiculo obj = vehiculoService.findById(id);
+        //return ResponseEntity.ok(convertToDto(obj));
+        return ResponseEntity.ok(mapperUtil.map(obj, VDTO.class));
+    }
+
     @GetMapping("/buscar")
     public ResponseEntity<List<VehiculoDTO>> findVehiculos() {
         List<VehiculoDTO> list = mapperUtil.mapList(vehiculoService.findVehiculos(), VehiculoDTO.class);

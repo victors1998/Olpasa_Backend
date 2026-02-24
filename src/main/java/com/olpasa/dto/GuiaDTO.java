@@ -1,5 +1,7 @@
 package com.olpasa.dto;
 
+import java.math.BigDecimal;
+
 public interface GuiaDTO {
 
     Integer getIdGuia();
@@ -19,7 +21,7 @@ public interface GuiaDTO {
     String getCliente();
     Integer getIdVehiculoPrincipal();
     String getPlacaPrincipal();
-    Integer getPesoMaxPermitido();
+    BigDecimal getPesoMaxPermitido();
     Integer getIdVehiculoSecundario();
     String getPlacaSecundario();
 }

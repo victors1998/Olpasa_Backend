@@ -26,7 +26,7 @@ public class PesoMedidaDTO {
     private Vehiculo id_vehiculo2;
 
     @Column(columnDefinition = "DECIMAL(18,3)")
-    private Integer peso_max_perm;
+    private BigDecimal peso_max_perm;
 
     @Column(columnDefinition = "DECIMAL(18,3)")
     private BigDecimal peso_bruto_transp;

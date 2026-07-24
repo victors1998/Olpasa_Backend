@@ -1,7 +1,11 @@
 package com.olpasa.service;
 
 import com.olpasa.model.Attachment;
-import com.olpasa.service.impl.CRUDImpl;
+import org.springframework.web.multipart.MultipartFile;
 
-public interface IAttachmentService extends ICRUD<Attachment, Integer> {
+import java.io.IOException;
+
+public interface IAttachmentService extends ICRUD<Attachment, Integer>{
+
+    Attachment saveFile(MultipartFile file, Long idEvaluacion, String userId) throws IOException;
 }

@@ -22,19 +22,19 @@ public class Attachment {
     private Integer id;
 
     @Column(name = "id_evaluacion")
-    private Integer id_evalucion;
+    private Long idEvaluacion;
 
     @Column(name = "user_id", length = 20)
-    private String user_id;
+    private String userId;
 
     @Column(name = "file_name", length = 250)
-    private String file_name;
+    private String fileName;
 
     @Column(name = "file_path", length = 250)
-    private String file_path;
+    private String filePath;
 
     @Column(name = "file_type", length = 50)
-    private String file_type;
+    private String fileType;
 
     @Column(name = "thumbnail_created")
     private Boolean thumbnailCreated;

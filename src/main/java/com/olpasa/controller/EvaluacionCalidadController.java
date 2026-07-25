@@ -1,15 +1,21 @@
 package com.olpasa.controller;
 
+import com.olpasa.dto.AttachmentDTO;
 import com.olpasa.dto.EvaluacionCalidadDto;
+import com.olpasa.model.Attachment;
 import com.olpasa.model.EvaluacionCalidad;
+import com.olpasa.service.IAttachmentService;
 import com.olpasa.service.IEvaluacionCalidadService;
 import com.olpasa.util.MapperUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -19,6 +25,7 @@ import java.util.List;
 public class EvaluacionCalidadController {
 
     private final IEvaluacionCalidadService evaluacionCalidadService;
+    private final IAttachmentService attachmentService;
 
     /*@Qualifier("defaultMapper")
     private final ModelMapper modelMapper;*/
@@ -76,6 +83,28 @@ public class EvaluacionCalidadController {
     @GetMapping("/existe/{idPesaje}/{idCriterio}")
     public ResponseEntity<Boolean> existsByPesajeAndCriterioActivo(@PathVariable Integer idPesaje, @PathVariable Integer idCriterio) {
         return ResponseEntity.ok(evaluacionCalidadService.existsByPesajeAndCriterioActivo(idPesaje, idCriterio));
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<AttachmentDTO> uploadFile(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("idEvaluacion") Long idEvaluacion,
+            @RequestParam("userId") String userId) {
+        try {
+            Attachment saved = attachmentService.saveFile(file, idEvaluacion, userId);
+            AttachmentDTO dto = mapperUtil.map(saved, AttachmentDTO.class);
+
+            URI location = ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .path("/{id}")
+                    .buildAndExpand(saved.getId())
+                    .toUri();
+
+            return ResponseEntity.created(location).body(dto);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
     }
 
 }

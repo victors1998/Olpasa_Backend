@@ -10,10 +10,13 @@ public interface SDTO {
     String getFecha();
     String getSolicitante();
     String getEstado();
-    BigDecimal getMontoAprobado();
+    BigDecimal getMontoSolicitado();
     BigDecimal getMontoaprobado();
     String getFpagSol();
     String getNombCon();
     String getAprobado();
+    String getNombre();
+    String getNumeroCuenta();
+    String getCci();
 
 }

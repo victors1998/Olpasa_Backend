@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -45,5 +47,43 @@ public class Credito {
     @Column(name = "fpag_cre", length = 20)
     private String formaPagoCredito;
 
+    @Column(name = "peri_cre")
+    private Integer periodoCredito;
 
+    @Column(name = "id_per")
+    private Integer idPeriodo;
+
+    @Column(name = "obse_cre", columnDefinition = "TEXT")
+    private String observacionCredito;
+
+    @Column(name = "che_cre", length = 50)
+    private String chequeCredito;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo", foreignKey = @ForeignKey(name = "FK_credito_perosna"))
+    private Persona codigo;
+
+    @Column(name = "reci_cre", length = 50)
+    private String reciboCredito;
+
+    @Column(name = "tipo_doc", length = 50)
+    private String tipoDocumento;
+
+    @Column(name = "usuario", length = 150)
+    private String usuario;
+
+    @Column(name = "version")
+    private Integer version;
+
+    @Column(name = "cancelacion")
+    private LocalDate cancelacion;
+
+    @Column(name = "f_anulado", columnDefinition = "datetime2(7)")
+    private LocalDateTime fechaAnulado;
+
+    @Column(name = "creacion", columnDefinition = "datetimeoffset(7)", nullable = true)
+    private OffsetDateTime creacion;
+
+    @Column(name = "estado_sinc", columnDefinition = "char(1)", nullable = true)
+    private String estadoSinc;
 }

@@ -74,4 +74,17 @@ public class Solicitud {
 
     @Column(name = "version")
     private Integer verision;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cre", foreignKey = @ForeignKey(name = "FK_solicitud_solicitud"))
+    private Credito idCredito;
+
+    @Column(name = "tipo_cambio", precision = 18, scale = 3, nullable = true)
+    private BigDecimal tipoCambio;
+
+    @Column(name = "peso", precision = 18, scale = 3, nullable = true)
+    private BigDecimal peso;
+
+    @Column(name = "precio", precision = 18, scale = 3, nullable = true)
+    private BigDecimal precio;
 }

@@ -1,13 +1,14 @@
 package com.olpasa.controller;
 
 import com.olpasa.dto.SDTO;
+import com.olpasa.dto.SolicitudDTO;
 import com.olpasa.service.ISolicitudSevice;
 import com.olpasa.util.MapperUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +26,14 @@ public class SolicitudController {
         List<SDTO> list = mapperUtil.mapList(solicitudService.solicitudesPendientes(), SDTO.class);
         return ResponseEntity.ok(list);
     }
+
+    @PostMapping("/solicitudes")
+    public ResponseEntity<byte[]> generarReporte(@RequestBody List<SolicitudDTO> solicitudes) throws Exception {
+        byte[] pdf = solicitudService.generarReporte(solicitudes);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=ReporteSolicitudes.pdf")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdf);
+    }
+
 }

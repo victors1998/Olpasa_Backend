@@ -17,15 +17,16 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class SolicitudDTO {
 
-    private Concepto idConcepto;
-    private String observacionSolicitud;
-    private String elaborado;
-    private String aprobado;
+    private Integer idSol;
     private String serie;
     private String numero;
-    private Integer verision;
-    private Credito idCredito;
-    private BigDecimal tipoCambio;
-    private BigDecimal peso;
-    private BigDecimal precio;
+    private String fecha; // usa String si Angular envía texto
+    private String solicitante;
+    private String estado;
+    private BigDecimal montoaprobado;
+    private BigDecimal montoSolicitado;
+    private String fpagSol;
+    private String nombre;
+    private String numeroCuenta;
+    private String cci;
 }

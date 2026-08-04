@@ -1,6 +1,7 @@
 package com.olpasa.service;
 
 import com.olpasa.dto.SDTO;
+import com.olpasa.dto.SolicitudDTO;
 import com.olpasa.model.Solicitud;
 
 import java.util.List;
@@ -8,4 +9,6 @@ import java.util.List;
 public interface ISolicitudSevice extends ICRUD<Solicitud, Integer>{
 
     List<SDTO> solicitudesPendientes();
+
+    byte[] generarReporte(List<SolicitudDTO> solicitudes) throws Exception;
 }

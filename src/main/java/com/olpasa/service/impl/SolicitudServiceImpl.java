@@ -43,16 +43,21 @@ public class SolicitudServiceImpl extends CRUDImpl<Solicitud, Integer> implement
         // 2. Crear DataSource con la lista
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(solicitudes);
 
-        // 3. Parámetros adicionales
-        Map<String, Object> parametros = new HashMap<>();
-        parametros.put("montoTotal", solicitudes.stream()
+        // 3. Calcular el total de monto aprobado
+        double montoTotal = solicitudes.stream()
+                .filter(s -> s.getMontoaprobado() != null)
                 .mapToDouble(s -> s.getMontoaprobado().doubleValue())
-                .sum());
+                .sum();
 
-        // 4. Llenar el reporte
+        // 4. Parámetros adicionales
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("montoTotal", montoTotal);
+
+        // 5. Llenar el reporte
         JasperPrint jasperPrint = JasperFillManager.fillReport(reporteStream, parametros, dataSource);
 
-        // 5. Exportar a PDF
+        // 6. Exportar a PDF
         return JasperExportManager.exportReportToPdf(jasperPrint);
     }
+
 }
